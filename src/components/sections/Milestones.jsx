@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Calendar, CheckCircle } from 'lucide-react';
+import { Calendar, CheckCircle, ArrowRight } from 'lucide-react';
 import Section from '../ui/Section';
 import Container from '../ui/Container';
+import Card from '../ui/Card';
 
 const Milestones = () => {
   const [ref, inView] = useInView({
@@ -16,109 +17,224 @@ const Milestones = () => {
       date: 'July 2024',
       title: 'Project Initiation',
       description: 'Research planning and initial literature review completed',
+      status: 'completed',
+      quarter: 'Q3 2024',
     },
     {
       date: 'August 2024',
       title: 'System Design',
       description: 'Architecture design and technology stack selection',
+      status: 'completed',
+      quarter: 'Q3 2024',
     },
     {
       date: 'August 2024',
       title: 'Prototype Development',
       description: 'Initial prototype and proof of concept implementation',
+      status: 'completed',
+      quarter: 'Q3 2024',
     },
     {
-      date: 'August 2024',
+      date: 'September 2024',
       title: 'Algorithm Implementation',
-      description: 'Core machine learning algorithms development',
+      description: 'Core machine learning algorithms development and testing',
+      status: 'completed',
+      quarter: 'Q3 2024',
     },
     {
-      date: 'August 2024',
+      date: 'October 2024',
       title: 'User Interface Design',
-      description: 'Adaptive UI framework development',
+      description: 'Adaptive UI framework development and integration',
+      status: 'completed',
+      quarter: 'Q4 2024',
+    },
+    {
+      date: 'November 2024',
+      title: 'Initial Testing Phase',
+      description: 'Comprehensive testing and validation of core features',
+      status: 'completed',
+      quarter: 'Q4 2024',
     },
     {
       date: 'December 2024',
-      title: 'Testing Phase',
-      description: 'Comprehensive testing and validation of the system',
-    },
-    {
-      date: 'February 2025',
       title: 'Performance Optimization',
-      description: 'System optimization and performance improvements',
-    },
-    {
-      date: 'March 2025',
-      title: 'User Studies',
-      description: 'Conducting user studies and feedback collection',
-    },
-    {
-      date: 'March 2025',
-      title: 'Documentation',
-      description: 'Complete documentation and user guides',
-    },
-    {
-      date: 'May 2025',
-      title: 'Final Evaluation',
-      description: 'Final system evaluation and performance assessment',
-    },
-    {
-      date: 'May 2025',
-      title: 'Project Completion',
-      description: 'Project delivery and final presentation',
+      description:
+        'System optimization and performance improvements implemented',
+      status: 'completed',
+      quarter: 'Q4 2024',
     },
   ];
 
+  const getStatusColor = (status) => {
+    return 'bg-green-100 text-green-700 border-green-200';
+  };
+
+  const getNodeColor = (status) => {
+    return 'border-green-500 bg-green-500';
+  };
+
   return (
-    <Section id="milestones" background="gray">
+    <Section id="milestones" className="py-24 bg-slate-50">
       <Container>
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
-            Milestones
-          </h2>
+          {/* Header Section */}
+          <div className="text-center space-y-6">
+            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-sm font-medium px-3 py-1.5 rounded-full">
+              <CheckCircle className="w-4 h-4" />
+              Achievements
+            </div>
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+                Milestones Achieved
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                Key accomplishments and deliverables completed throughout our
+                research journey
+              </p>
+            </div>
+          </div>
 
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 hidden md:block"></div>
+          {/* Timeline */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* Vertical Line */}
+            <div className="absolute left-1/2 transform -translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-200 via-green-300 to-green-400"></div>
 
-            <div className="space-y-8">
+            <div className="space-y-16">
               {milestones.map((milestone, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative flex items-start"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                  className="relative grid grid-cols-12 items-center gap-8"
                 >
-                  {/* Timeline Node */}
-                  <div className="hidden md:flex w-16 h-16 bg-white border-4 border-blue-500 rounded-full items-center justify-center mr-8 flex-shrink-0 relative z-10">
-                    <CheckCircle className="w-6 h-6 text-blue-500" />
+                  {/* Left Content (for even indices) */}
+                  <div
+                    className={`col-span-5 ${
+                      index % 2 === 0 ? 'order-1' : 'order-1 invisible'
+                    }`}
+                  >
+                    {index % 2 === 0 && (
+                      <Card className="p-6 bg-white border border-slate-200 hover:border-green-200 hover:shadow-md transition-all duration-300 group">
+                        <div className="space-y-4">
+                          {/* Date Badge */}
+                          <div className="flex items-center justify-end">
+                            <span className="inline-flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium border bg-green-100 text-green-700 border-green-200">
+                              {milestone.date}
+                            </span>
+                          </div>
+
+                          {/* Title */}
+                          <h3 className="text-xl font-bold text-slate-900 group-hover:text-green-600 transition-colors text-right">
+                            {milestone.title}
+                          </h3>
+
+                          {/* Description */}
+                          <p className="text-slate-600 leading-relaxed text-right">
+                            {milestone.description}
+                          </p>
+
+                          {/* Status Badge */}
+                          <div className="flex justify-end">
+                            <span className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+                              ✓ Completed
+                            </span>
+                          </div>
+                        </div>
+                      </Card>
+                    )}
                   </div>
 
-                  {/* Content */}
-                  <div className="flex-1 bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-300">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                      <div className="flex items-center mb-2 md:mb-0">
-                        <Calendar className="w-5 h-5 text-gray-400 mr-2" />
-                        <span className="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-                          {milestone.date}
-                        </span>
-                      </div>
+                  {/* Center Timeline Node */}
+                  <div className="col-span-2 order-2 flex justify-center">
+                    <div className="w-16 h-16 border-green-500 bg-green-500 rounded-full flex items-center justify-center shadow-lg relative z-10 transition-all duration-300">
+                      <CheckCircle className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {milestone.title}
-                    </h3>
-                    <p className="text-gray-600">{milestone.description}</p>
+                  </div>
+
+                  {/* Right Content (for odd indices) */}
+                  <div
+                    className={`col-span-5 ${
+                      index % 2 === 1 ? 'order-3' : 'order-3 invisible'
+                    }`}
+                  >
+                    {index % 2 === 1 && (
+                      <Card className="p-6 bg-white border border-slate-200 hover:border-green-200 hover:shadow-md transition-all duration-300 group">
+                        <div className="space-y-4">
+                          {/* Date Badge */}
+                          <div className="flex items-center justify-start">
+                            <span className="inline-flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium border bg-green-100 text-green-700 border-green-200">
+                              {milestone.date}
+                            </span>
+                          </div>
+
+                          {/* Title */}
+                          <h3 className="text-xl font-bold text-slate-900 group-hover:text-green-600 transition-colors text-left">
+                            {milestone.title}
+                          </h3>
+
+                          {/* Description */}
+                          <p className="text-slate-600 leading-relaxed text-left">
+                            {milestone.description}
+                          </p>
+
+                          {/* Status Badge */}
+                          <div className="flex justify-start">
+                            <span className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+                              ✓ Completed
+                            </span>
+                          </div>
+                        </div>
+                      </Card>
+                    )}
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
+
+          {/* Bottom CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 1.0 }}
+            className="bg-white rounded-2xl border border-slate-200 p-8 md:p-12 text-center relative overflow-hidden"
+          >
+            {/* Background Elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full -translate-y-16 translate-x-16"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-green-100 rounded-full translate-y-12 -translate-x-12"></div>
+
+            <div className="relative z-10 space-y-6">
+              <div className="space-y-4">
+                <h3 className="text-3xl md:text-4xl font-bold text-slate-900">
+                  Research Progress Summary
+                </h3>
+                <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+                  We've successfully completed{' '}
+                  <span className="text-green-600 font-semibold">
+                    7 major milestones
+                  </span>{' '}
+                  in our AI-driven UI personalization research project.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                  View detailed progress
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <button className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-8 py-3 rounded-lg font-medium hover:bg-slate-200 transition-colors">
+                  Download report
+                </button>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </Container>
     </Section>

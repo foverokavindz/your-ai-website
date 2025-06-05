@@ -31,7 +31,7 @@ function App() {
         <Technologies />
         <Milestones />
         <Downloads />
-        <Achievements />
+        {/* <Achievements /> */}
         <About />
         <Contact />
       </main>
