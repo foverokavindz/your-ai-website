@@ -21,71 +21,66 @@ const About = () => {
 
   const supervisors = [
     {
-      name: 'Dr. John Smith',
-      role: 'Project Supervisor',
-      department: 'Computer Science Department',
-      specialization: 'AI & Machine Learning',
-      email: 'john.smith@university.edu',
+      name: 'Dr. Chamara Liyanage',
+      role: 'Main Supervisor',
+      department: 'IT Department',
+      specialization: 'Senior Lecturer',
+      email: 'chamara@sjp.as.lk',
       linkedin: '#',
-      bio: 'Leading expert in artificial intelligence with 15+ years of research experience in adaptive systems.',
+      bio: '',
     },
     {
-      name: 'Dr. Sarah Johnson',
-      role: 'Co-Supervisor',
-      department: 'HCI Research Lab',
-      specialization: 'Human-Computer Interaction',
-      email: 'sarah.johnson@university.edu',
+      name: 'Mr. Hiran Wijesinghe',
+      role: 'External-Supervisor',
+      department: 'Sri Lanka Tea board',
+      specialization: 'Assistance Director - IT',
+      email: 'hiral@brd.ac.lk',
       linkedin: '#',
-      bio: 'Specializes in user experience research and interface design for intelligent systems.',
-    },
-    {
-      name: 'Dr. Michael Brown',
-      role: 'External Supervisor',
-      department: 'Tech Innovation Corp',
-      specialization: 'UI/UX Technologies',
-      email: 'michael.brown@company.com',
-      linkedin: '#',
-      bio: 'Industry expert with extensive experience in developing commercial UI adaptation solutions.',
+      bio: '',
     },
   ];
 
   const teamMembers = [
     {
-      name: 'Alex Chen',
-      role: 'Lead Developer & Researcher',
+      name: 'Kavinda Weerasinghe',
+      role: 'Frontend Development',
       studentId: 'IT21324406',
       specialization: 'Full-Stack Development',
-      email: 'alex.chen@student.edu',
+      email: 'kavinda@abc.lk',
       linkedin: '#',
       github: '#',
       contributions: [
-        'System Architecture',
-        'Backend Development',
+        'Frontend Design & Development',
+        'LItreture review',
         'API Integration',
       ],
     },
     {
-      name: 'Maria Garcia',
-      role: 'UI/UX Researcher',
+      name: 'Nipuni Nishadini',
+      role: 'Backend Developer',
       studentId: 'IT21215360',
       specialization: 'User Experience Design',
       email: 'maria.garcia@student.edu',
       linkedin: '#',
       github: '#',
-      contributions: ['User Research', 'Interface Design', 'Usability Testing'],
+      contributions: [
+        'Endpoint development',
+        'Backend Engineering',
+        'Testings',
+      ],
     },
     {
-      name: 'David Wilson',
-      role: 'ML Engineer',
+      name: 'Dulan Jayewikrama',
+      role: 'AI developer',
       studentId: 'IT17117210',
-      specialization: 'Machine Learning',
-      email: 'david.wilson@student.edu',
+      specialization: 'AI devleopment',
+      email: 'dulan@student.edu',
       linkedin: '#',
       github: '#',
       contributions: [
-        'Algorithm Development',
-        'Data Analysis',
-        'Model Training',
+        'Backend Development',
+        'Document Processing',
+        'Prompt Engineering',
       ],
     },
   ];
@@ -116,7 +111,6 @@ const About = () => {
               </p>
             </div>
           </div>
-
           {/* Supervisors Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -127,78 +121,79 @@ const About = () => {
             <div className="flex items-center gap-3 justify-center">
               <GraduationCap className="w-6 h-6 text-green-600" />
               <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
-                Academic Supervisors
+                Supervisors
               </h3>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
-              {supervisors.map((supervisor, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                >
-                  <Card className="p-8 bg-white border border-slate-200 hover:border-green-200 hover:shadow-lg transition-all duration-300 group h-full">
-                    <div className="space-y-6">
-                      {/* Avatar and Header */}
-                      <div className="text-center space-y-4">
-                        <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                          <span className="text-2xl font-bold text-white">
-                            {supervisor.name
-                              .split(' ')
-                              .map((n) => n[0])
-                              .join('')}
+            <div className="flex justify-center">
+              <div className="grid md:grid-cols-2 gap-8 max-w-3xl">
+                {supervisors.map((supervisor, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                  >
+                    <Card className="p-8 bg-white border border-slate-200 hover:border-green-200 hover:shadow-lg transition-all duration-300 group h-full">
+                      <div className="space-y-6">
+                        {/* Avatar and Header */}
+                        <div className="text-center space-y-4">
+                          <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <span className="text-2xl font-bold text-white">
+                              {supervisor.name
+                                .split(' ')
+                                .map((n) => n[0])
+                                .join('')}
+                            </span>
+                          </div>
+                          <div>
+                            <h4 className="text-xl font-bold text-slate-900 group-hover:text-green-600 transition-colors">
+                              {supervisor.name}
+                            </h4>
+                            <p className="text-green-600 font-medium">
+                              {supervisor.role}
+                            </p>
+                            <p className="text-sm text-slate-500">
+                              {supervisor.department}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Specialization */}
+                        <div className="text-center">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-700 border border-green-200">
+                            <Star className="w-3 h-3 mr-1" />
+                            {supervisor.specialization}
                           </span>
                         </div>
-                        <div>
-                          <h4 className="text-xl font-bold text-slate-900 group-hover:text-green-600 transition-colors">
-                            {supervisor.name}
-                          </h4>
-                          <p className="text-green-600 font-medium">
-                            {supervisor.role}
-                          </p>
-                          <p className="text-sm text-slate-500">
-                            {supervisor.department}
-                          </p>
+
+                        {/* Bio */}
+                        <p className="text-slate-600 text-sm leading-relaxed text-center">
+                          {supervisor.bio}
+                        </p>
+
+                        {/* Contact */}
+                        <div className="flex justify-center space-x-3 pt-4 border-t border-slate-100">
+                          <a
+                            href={`mailto:${supervisor.email}`}
+                            className="w-10 h-10 bg-slate-100 hover:bg-green-100 hover:text-green-600 rounded-lg flex items-center justify-center transition-colors duration-200"
+                          >
+                            <Mail className="w-4 h-4" />
+                          </a>
+                          <a
+                            href={supervisor.linkedin}
+                            className="w-10 h-10 bg-slate-100 hover:bg-blue-100 hover:text-blue-600 rounded-lg flex items-center justify-center transition-colors duration-200"
+                          >
+                            <Linkedin className="w-4 h-4" />
+                          </a>
                         </div>
                       </div>
-
-                      {/* Specialization */}
-                      <div className="text-center">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-700 border border-green-200">
-                          <Star className="w-3 h-3 mr-1" />
-                          {supervisor.specialization}
-                        </span>
-                      </div>
-
-                      {/* Bio */}
-                      <p className="text-slate-600 text-sm leading-relaxed text-center">
-                        {supervisor.bio}
-                      </p>
-
-                      {/* Contact */}
-                      <div className="flex justify-center space-x-3 pt-4 border-t border-slate-100">
-                        <a
-                          href={`mailto:${supervisor.email}`}
-                          className="w-10 h-10 bg-slate-100 hover:bg-green-100 hover:text-green-600 rounded-lg flex items-center justify-center transition-colors duration-200"
-                        >
-                          <Mail className="w-4 h-4" />
-                        </a>
-                        <a
-                          href={supervisor.linkedin}
-                          className="w-10 h-10 bg-slate-100 hover:bg-blue-100 hover:text-blue-600 rounded-lg flex items-center justify-center transition-colors duration-200"
-                        >
-                          <Linkedin className="w-4 h-4" />
-                        </a>
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
-
           {/* Team Members Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -297,7 +292,6 @@ const About = () => {
               ))}
             </div>
           </motion.div>
-
           {/* Bottom CTA */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

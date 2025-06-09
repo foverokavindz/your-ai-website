@@ -15,53 +15,96 @@ const Milestones = () => {
   const milestones = [
     {
       date: 'July 2024',
-      title: 'Project Initiation',
-      description: 'Research planning and initial literature review completed',
+      title: 'Topic Selection',
+      description: 'Initial literature review and topic finalization',
       status: 'completed',
       quarter: 'Q3 2024',
     },
     {
       date: 'August 2024',
-      title: 'System Design',
-      description: 'Architecture design and technology stack selection',
+      title: 'Doamin Analysis',
+      description: 'Comprehensive domain analysis and requirements gathering',
       status: 'completed',
       quarter: 'Q3 2024',
     },
     {
       date: 'August 2024',
-      title: 'Prototype Development',
-      description: 'Initial prototype and proof of concept implementation',
+      title: 'Learn AI and LLMs',
+      description:
+        'Introduction to AI and LLMs, foundational knowledge acquisition',
       status: 'completed',
       quarter: 'Q3 2024',
     },
     {
       date: 'September 2024',
-      title: 'Algorithm Implementation',
-      description: 'Core machine learning algorithms development and testing',
+      title: 'Requirements Gathering & Literature Review',
+      description: 'Detailed requirements gathering and literature review',
       status: 'completed',
       quarter: 'Q3 2024',
     },
     {
       date: 'October 2024',
-      title: 'User Interface Design',
-      description: 'Adaptive UI framework development and integration',
+      title: 'System Design',
+      description: 'System architecture design and technology stack selection',
       status: 'completed',
       quarter: 'Q4 2024',
     },
     {
       date: 'November 2024',
-      title: 'Initial Testing Phase',
-      description: 'Comprehensive testing and validation of core features',
+      title: 'Data Collection',
+      description: 'Data collection and preprocessing for model training',
       status: 'completed',
       quarter: 'Q4 2024',
     },
     {
       date: 'December 2024',
-      title: 'Performance Optimization',
+      title: 'Literature Review',
       description:
-        'System optimization and performance improvements implemented',
+        'Comprehensive literature review and analysis of existing solutions',
       status: 'completed',
       quarter: 'Q4 2024',
+    },
+    {
+      date: 'January 2025',
+      title: 'Fronetend Development',
+      description: 'Initial frontend development and UI design',
+      status: 'completed',
+      quarter: 'Q1 2025',
+    },
+    {
+      date: 'February 2025',
+      title: 'Backend Development',
+      description: 'Backend architecture setup and API development',
+      status: 'completed',
+      quarter: 'Q1 2025',
+    },
+    {
+      date: 'March 2025',
+      title: 'Complete AI Integration',
+      description: 'Integration of AI models with frontend and backend',
+      status: 'completed',
+      quarter: 'Q1 2025',
+    },
+    {
+      date: 'April 2025',
+      title: 'Second Progress Review',
+      description: 'Mid-project review and adjustments based on feedback',
+      status: 'completed',
+      quarter: 'Q2 2025',
+    },
+    {
+      date: 'May 2025',
+      title: 'Final Testing',
+      description: 'Comprehensive testing and bug fixing before deployment',
+      status: 'completed',
+      quarter: 'Q2 2025',
+    },
+    {
+      date: 'June 2025',
+      title: 'Performance Optimization',
+      description: 'Optimization of system performance and user experience',
+      status: 'completed',
+      quarter: 'Q2 2025',
     },
   ];
 
@@ -218,7 +261,7 @@ const Milestones = () => {
                 <p className="text-xl text-slate-600 max-w-2xl mx-auto">
                   We've successfully completed{' '}
                   <span className="text-green-600 font-semibold">
-                    7 major milestones
+                    {milestones.length} major milestones
                   </span>{' '}
                   in our AI-driven UI personalization research project.
                 </p>

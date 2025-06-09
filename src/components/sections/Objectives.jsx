@@ -1,7 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Target, Zap, Users, ArrowRight, CheckCircle } from 'lucide-react';
+import {
+  Target,
+  Zap,
+  Users,
+  ArrowRight,
+  CheckCircle,
+  BookOpen,
+} from 'lucide-react';
 import Section from '../ui/Section';
 import Container from '../ui/Container';
 import Card from '../ui/Card';
@@ -15,38 +22,50 @@ const Objectives = () => {
   const objectives = [
     {
       icon: Target,
-      title: 'Develop Adaptive UI Framework',
+      title: 'Design a Knowledge Graph-Based RAG System',
       description:
-        'Create a comprehensive framework for real-time user interface adaptation based on behavior analysis and user feedback.',
+        'Develop an intelligent system using LLMs, knowledge graphs, and domain glossaries to manage and retrieve information from historical documents and support informed decision-making.',
       number: '01',
       features: [
-        'Real-time adaptation',
-        'Behavior analysis',
-        'Feedback integration',
+        'Knowledge Graph + LLM Integration',
+        'Context-aware Response Generation',
+        'Historical Document Management',
       ],
     },
     {
       icon: Zap,
-      title: 'Implement AI-Powered Personalization',
+      title: 'Build Web-Based Document Portal',
       description:
-        'Build machine learning algorithms that can predict and adapt to user preferences automatically.',
+        'Create a secure platform for uploading, viewing, validating, and deleting historical records by authorized users.',
       number: '02',
       features: [
-        'Machine learning',
-        'Predictive algorithms',
-        'Auto-adaptation',
+        'Centralized repository',
+        'Document versioning',
+        'User permissions',
       ],
     },
     {
       icon: Users,
-      title: 'Enhance User Experience',
+      title: 'Extract Structured Knowledge',
       description:
-        'Improve overall user satisfaction and productivity through intelligent interface customization.',
+        'Transform unstructured documents into knowledge graph representations to enable semantic organization and search.',
       number: '03',
       features: [
-        'User satisfaction',
-        'Productivity boost',
-        'Smart customization',
+        'Entity and relation extraction',
+        'Knowledge graph modeling',
+        'Semantic search support',
+      ],
+    },
+    {
+      icon: BookOpen, // or another suitable icon
+      title: 'Enable Natural Language Interaction',
+      description:
+        'Provide a user-friendly interface that allows users to ask questions naturally and receive domain-aware responses.',
+      number: '04',
+      features: [
+        'Natural language queries',
+        'Glossary-assisted interpretation',
+        'LLM-enhanced responses',
       ],
     },
   ];

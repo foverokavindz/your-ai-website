@@ -16,6 +16,12 @@ import {
   Server,
   ArrowRight,
   Star,
+  CloudIcon,
+  Boxes,
+  Blocks,
+  Atom,
+  ChartSpline,
+  AirVentIcon,
 } from 'lucide-react';
 import Section from '../ui/Section';
 import Container from '../ui/Container';
@@ -29,39 +35,63 @@ const Technologies = () => {
 
   const techCategories = [
     {
-      title: 'Machine Learning & AI',
-      description: 'Advanced algorithms for intelligent personalization',
+      title: 'AI and LLMs',
+      description: 'Artificial Intelligence and Large Language Models',
       technologies: [
         {
           icon: Brain,
-          name: 'TensorFlow',
-          description: 'Deep learning framework',
+          name: 'llama 3.1',
+          description: 'Open-source LLM by Meta',
         },
-        { icon: Zap, name: 'OpenAI', description: 'AI language models' },
-        { icon: Layers, name: 'Keras', description: 'Neural network API' },
-        { icon: BarChart3, name: 'NumPy', description: 'Scientific computing' },
+        {
+          icon: Zap,
+          name: 'Gemma 3',
+          description: ' LLM developed by Google ',
+        },
+        {
+          icon: Layers,
+          name: 'DeepInfra',
+          description: 'LLM inference platform',
+        },
+        {
+          icon: AirVentIcon,
+          name: 'LangChain',
+          description: ' Framework for building LLM applications',
+        },
       ],
     },
     {
-      title: 'Data Processing & NLP',
+      title: 'Backend & Data Processing',
       description: 'Text analysis and natural language understanding',
       technologies: [
         { icon: MessageSquare, name: 'spaCy', description: 'NLP library' },
-        { icon: MessageSquare, name: 'NLTK', description: 'Text processing' },
+        {
+          icon: Boxes,
+          name: 'Flask ',
+          description: ' Developed API with python ',
+        },
+        {
+          icon: CloudIcon,
+          name: 'Azure services',
+          description: 'Azure blob storage',
+        },
         {
           icon: Database,
-          name: 'FAISS-CPU',
-          description: 'Vector similarity search',
+          name: 'MongoDB',
+          description: 'Lightweight database',
         },
-        { icon: Database, name: 'SQLite', description: 'Lightweight database' },
       ],
     },
     {
-      title: 'Development & Deployment',
+      title: 'Fronend Deployment',
       description: 'Modern web technologies and cloud infrastructure',
       technologies: [
-        { icon: Code, name: 'Python', description: 'Backend development' },
-        { icon: Globe, name: 'React', description: 'Frontend framework' },
+        {
+          icon: Blocks,
+          name: 'Tailwind Css',
+          description: 'Populer CSS library',
+        },
+        { icon: Atom, name: 'React', description: 'Frontend framework' },
         {
           icon: ContainerIcon,
           name: 'Docker',
@@ -123,7 +153,7 @@ const Technologies = () => {
                 </div>
 
                 {/* Technology Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mx-auto">
                   {category.technologies.map((tech, techIndex) => (
                     <motion.div
                       key={techIndex}
@@ -183,7 +213,7 @@ const Technologies = () => {
           >
             {[
               {
-                number: '12+',
+                number: '10+',
                 label: 'Technologies',
                 icon: Code,
               },
