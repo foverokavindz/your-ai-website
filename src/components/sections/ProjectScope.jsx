@@ -24,28 +24,29 @@ const ProjectScope = () => {
       icon: Target,
       title: 'AI-Powered Personalization',
       description:
-        'Intelligent system that adapts user interfaces based on behavior analysis and preferences',
+        'Intelligent system that adapts user interfaces based on behavior analysis and preferences extracted from historical documents',
     },
     {
       icon: Users,
       title: 'User-Centric Design',
       description:
-        'Focus on enhancing user experience through adaptive and responsive interface elements',
+        'Focus on enhancing user experience through adaptive and responsive interface elements for querying historical data',
     },
     {
       icon: Zap,
       title: 'Real-time Adaptation',
       description:
-        'Dynamic interface modifications that evolve with user patterns and feedback',
+        'Dynamic interface modifications that evolve with user patterns and feedback within the document management portal',
     },
   ];
 
   const keyFeatures = [
-    'Machine learning-driven personalization algorithms',
-    'Cross-platform compatibility and integration',
-    'Privacy-focused data collection and processing',
-    'Accessibility-enhanced adaptive interfaces',
-    'Performance optimization for real-time updates',
+    'Web-based document management portal',
+    'LLMs integration for context-aware responses',
+    'Structured knowledge base from historical document',
+    'Domain-specific glossary for accurate terminology',
+    'User-friendly interface ',
+    'Systems future needs (Scalability and adaptability ',
   ];
 
   return (
@@ -69,8 +70,8 @@ const ProjectScope = () => {
                 Project Scope
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Defining the boundaries and objectives of our intelligent
-                interface research
+                Building a Knowledge Graph from Document Retrieval to Enhance
+                LLM-Powered Responses
               </p>
             </div>
           </div>
@@ -87,20 +88,27 @@ const ProjectScope = () => {
                 <div className="space-y-6">
                   <div className="space-y-4">
                     <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
-                      Intelligent UI Personalization System
+                      Graph RAG System & Domain Specific Glossary
                     </h3>
+
                     <p className="text-lg text-slate-600 leading-relaxed">
-                      This research project focuses on developing an{' '}
+                      Develop a{' '}
                       <span className="text-green-600 font-semibold">
-                        intelligent system
+                        Graph RAG system
                       </span>{' '}
-                      for personalizing software user interfaces based on user
-                      feedback and behavior analysis. The goal is to enhance
-                      user experience by creating{' '}
+                      integrated to improve organizations' ability to manage,
+                      retrieve, and utilize{' '}
                       <span className="text-green-600 font-semibold">
-                        adaptive interfaces
+                        historical documents
                       </span>{' '}
-                      that evolve with user preferences and usage patterns.
+                      with the help of an externally managed{' '}
+                      <span className="text-green-600 font-semibold">
+                        domain-specific glossary
+                      </span>{' '}
+                      This system will aid decision-making by providing
+                      accurate, contextually relevant information based on of
+                      documented institutional actions, decisions, and
+                      domain-specific knowledge.
                     </p>
                   </div>
 
@@ -216,7 +224,7 @@ const ProjectScope = () => {
                   <span className="text-green-600 font-semibold">
                     research methodology
                   </span>{' '}
-                  addresses the challenges of UI personalization.
+                  addresses the challenges of managing historical documents.
                 </p>
               </div>
 
