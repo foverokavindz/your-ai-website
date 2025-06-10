@@ -19,17 +19,17 @@ const ResearchProblem = () => {
   });
 
   const problems = [
-    "Static interfaces that don't adapt to user preferences",
-    'Lack of intelligent behavior analysis',
-    'Poor accessibility for users with different needs',
-    'Generic user experiences across different contexts',
+    'Manual document retrieval systems are time-consuming and inefficient.',
+    'Valuable institutional knowledge is lost when experienced personnel leave.',
+    'Traditional storage lacks semantic search and intelligent access.',
+    'Information fragmentation leads to poor decision-making.',
   ];
 
   const solutions = [
-    'AI-powered dynamic interface adaptation',
-    'Advanced user behavior pattern recognition',
-    'Vision-aware accessibility features',
-    'Context-sensitive personalization algorithms',
+    'AI-powered knowledge retrieval using Knowledge Graphs + LLMs.',
+    'Automated contextualization of historical records.',
+    'Glossary-aided disambiguation of domain-specific terminology.',
+    'Preserving institutional memory for strategic decision-making.',
   ];
 
   return (
@@ -50,11 +50,11 @@ const ResearchProblem = () => {
             </div>
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
-                Research Challenge
+                Research Problem
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Identifying key problems in current UI systems and proposing
-                innovative solutions
+                Identifying challenges in managing historical data and proposing
+                intelligent retrieval solutions.
               </p>
             </div>
           </div>
@@ -136,114 +136,6 @@ const ResearchProblem = () => {
               </Card>
             </motion.div>
           </div>
-
-          {/* Solution Flow Diagram */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="relative"
-          >
-            <Card className="p-8 md:p-12 bg-slate-50 border border-slate-200">
-              <div className="text-center mb-8">
-                <h4 className="text-xl font-bold text-slate-900 mb-2">
-                  Solution Implementation Flow
-                </h4>
-                <p className="text-slate-600">
-                  How our research addresses the identified problems
-                </p>
-              </div>
-
-              <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                {[
-                  {
-                    title: 'Problem Analysis',
-                    desc: 'Identify UI limitations',
-                    color: 'red',
-                  },
-                  {
-                    title: 'AI Integration',
-                    desc: 'Apply machine learning',
-                    color: 'blue',
-                  },
-                  {
-                    title: 'Smart Adaptation',
-                    desc: 'Dynamic personalization',
-                    color: 'green',
-                  },
-                ].map((step, index) => (
-                  <React.Fragment key={index}>
-                    <div className="flex flex-col items-center text-center">
-                      <div
-                        className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${
-                          step.color === 'red'
-                            ? 'bg-red-50 border border-red-200'
-                            : step.color === 'blue'
-                            ? 'bg-blue-50 border border-blue-200'
-                            : 'bg-green-50 border border-green-200'
-                        }`}
-                      >
-                        <span
-                          className={`text-2xl font-bold ${
-                            step.color === 'red'
-                              ? 'text-red-600'
-                              : step.color === 'blue'
-                              ? 'text-blue-600'
-                              : 'text-green-600'
-                          }`}
-                        >
-                          {index + 1}
-                        </span>
-                      </div>
-                      <h5 className="font-semibold text-slate-900 mb-1">
-                        {step.title}
-                      </h5>
-                      <p className="text-sm text-slate-600">{step.desc}</p>
-                    </div>
-                    {index < 2 && (
-                      <ArrowRight className="w-6 h-6 text-slate-400 hidden md:block" />
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-            </Card>
-          </motion.div>
-
-          {/* Bottom CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-12 text-center relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full -translate-y-16 translate-x-16"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-green-100 rounded-full translate-y-12 -translate-x-12"></div>
-
-            <div className="relative z-10 space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900">
-                  Ready to see our approach?
-                </h3>
-                <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                  Explore how our{' '}
-                  <span className="text-green-600 font-semibold">
-                    innovative solutions
-                  </span>{' '}
-                  tackle these challenges systematically.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors">
-                  View objectives
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <button className="inline-flex items-center gap-2 bg-white text-slate-900 px-8 py-3 rounded-lg font-medium border border-slate-200 hover:bg-slate-50 transition-colors">
-                  Explore methodology
-                </button>
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </Container>
     </Section>

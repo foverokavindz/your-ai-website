@@ -20,46 +20,56 @@ const Methodology = () => {
   });
 
   const keyFeatures = [
-    'Data-driven insights',
-    'Machine learning algorithms',
-    'Real-time adaptation',
-    'User behavior analysis',
-    'Performance optimization',
-    'Scientific validation',
+    'Knowledge Graph Integration',
+    'Glossary-Aided Responses',
+    'Semantic Context Retrieval',
+    'Large Language Models',
+    'Automated Processing',
+    'Domain-Specific Accuracy',
   ];
 
   const steps = [
     {
       icon: Database,
-      title: 'Data Collection & Analysis',
+      title: 'Data Collection and Preprocessing',
       description:
-        'We systematically gather and analyze user interaction patterns, behavioral data, and interface performance metrics to understand how users interact with different UI elements.',
+        'This step involves gathering and preparing historical documents through a document management portal, using PyMuPDF to extract clean text from PDFs and chunking for efficient processing.',
+      highlights: ['Document upload', 'Text extraction', 'Preprocessing'],
+    },
+    {
+      icon: Database,
+      title: 'Knowledge Graph Creation',
+      description:
+        'A pipeline constructs a semantically rich knowledge graph using LangChain’s LLMGraphTransformer to extract entities and relationships, stored in a Neo4j graph database with automated techniques.',
       highlights: [
-        'User tracking',
-        'Behavioral patterns',
-        'Performance metrics',
+        'Automated extraction',
+        'Entity-relationship mapping',
+        'Neo4j storage',
       ],
     },
     {
       icon: Brain,
-      title: 'Machine Learning Processing',
+      title: 'Graph-based Context Retrieval',
       description:
-        'Advanced ML algorithms process the collected data to identify patterns, predict user preferences, and create personalized adaptation rules for each individual user.',
-      highlights: [
-        'Pattern recognition',
-        'Predictive modeling',
-        'Personalization rules',
-      ],
+        'User queries are processed to extract key entities, with a Graph Retriever using graph traversal to retrieve related nodes and relationships, combined with glossary definitions for context.',
+      highlights: ['Semantic search', 'Graph traversal', 'Context integration'],
     },
     {
       icon: Code,
-      title: 'System Implementation',
+      title: 'Integration with LLM and Glossary',
       description:
-        'The adaptive interface system is deployed with real-time personalization capabilities, continuously learning and improving based on ongoing user interactions.',
+        'Integrates LLMs (Llama 3.1, Gemma 3) for triple extraction and response generation, enhanced by a user-managed glossary with fuzzy matching to improve domain-specific interpretive accuracy.',
+      highlights: ['LLM processing', 'Glossary enhancement', 'Fuzzy matching'],
+    },
+    {
+      icon: Code,
+      title: 'Answer Generation and Delivery',
+      description:
+        'Generates context-aware responses via prompt engineering with LLMs, delivering them through a React.js-based frontend interface for a user-friendly experience.',
       highlights: [
-        'Real-time adaptation',
-        'Continuous learning',
-        'System optimization',
+        'Prompt engineering',
+        'Context-aware responses',
+        'Frontend delivery',
       ],
     },
   ];
@@ -85,8 +95,9 @@ const Methodology = () => {
                 Our Methodology
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                A comprehensive approach combining data science, machine
-                learning, and user experience design
+                A comprehensive approach combining knowledge graphs, large
+                language models, and glossary integration for domain-specific
+                information retrieval
               </p>
             </div>
 
@@ -218,7 +229,7 @@ const Methodology = () => {
                   <span className="text-green-600 font-semibold">
                     breakthrough innovations
                   </span>{' '}
-                  in UI personalization.
+                  in domain-specific information retrieval.
                 </p>
               </div>
 
