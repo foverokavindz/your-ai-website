@@ -168,7 +168,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             <motion.div
-              className="fixed top-16 sm:top-20 left-2 right-2 sm:left-4 sm:right-4 z-50 lg:hidden bg-white/95 backdrop-blur-xl rounded-2xl border border-slate-200/50 shadow-2xl overflow-hidden max-h-[calc(100vh-5rem)] overflow-y-auto"
+              className="fixed top-20 sm:top-20 left-2 right-2 sm:left-4 sm:right-4 z-50 lg:hidden bg-white/95 backdrop-blur-xl rounded-2xl border border-slate-200/50 shadow-2xl overflow-hidden max-h-[calc(100vh-5rem)] overflow-y-auto"
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
