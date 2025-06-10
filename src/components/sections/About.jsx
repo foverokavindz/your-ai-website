@@ -12,6 +12,7 @@ import {
 import Section from '../ui/Section';
 import Container from '../ui/Container';
 import Card from '../ui/Card';
+import { image } from 'framer-motion/client';
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -46,42 +47,48 @@ const About = () => {
       role: 'Frontend Development',
       studentId: 'TE010101',
       specialization: 'Full-Stack Development & UI design',
-      email: 'kavinda@abc.lk',
-      linkedin: '#',
-      github: '#',
+      email: 'kavindamadhuranga74@gmail.com',
+      linkedin: 'www.linkedin.com/in/kavinda-weerasinghe-1302a71b7',
+      github: 'https://github.com/foverokavindz',
       contributions: [
         'Frontend Design & Development',
         'LItreture review',
         'API Integration',
       ],
+      image:
+        'https://media.licdn.com/dms/image/v2/D5603AQEG5p_xS3wDMQ/profile-displayphoto-shrink_800_800/B56ZTv51GfGoAk-/0/1739191702887?e=1755129600&v=beta&t=LfAbdtHFNgl4LDAjqQNDCEOgq9q1xGIqGZztJ7RY9Hw',
     },
     {
       name: 'Nipuni Nishadini',
       role: 'Backend Development',
       studentId: 'TE010101',
       specialization: 'Full-Stack Development & System Design',
-      email: 'maria.garcia@student.edu',
-      linkedin: '#',
-      github: '#',
+      email: 'ict20826@fot.sjp.ac.lk',
+      linkedin: 'https://www.linkedin.com/in/nipuninishadini/',
+      github: 'https://github.com/Nipuni-De-Silva',
       contributions: [
         'Endpoint development',
         'Backend Engineering',
         'System Architecture',
       ],
+      image:
+        'https://media.licdn.com/dms/image/v2/D4D03AQGB0dxoMaUfGQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1708519639261?e=1755129600&v=beta&t=saNAY7RWotm_hfc6n58dzhTgbPg3birmPKZpga5N3To',
     },
     {
       name: 'Dulan Jayewikrama',
       role: 'AI development',
       studentId: 'TE010101',
       specialization: 'AI devleopment & Machine Learning',
-      email: 'dulan@student.edu',
-      linkedin: '#',
-      github: '#',
+      email: 'ict20862@fot.sjp.ac.lk',
+      linkedin: 'https://www.linkedin.com/in/dulan-jayawickrama/',
+      github: 'https://github.com/realDulanJay',
       contributions: [
         'LLM Integration',
         'Knowledge Graph Construction',
         'Prompt Engineering',
       ],
+      image:
+        'https://media.licdn.com/dms/image/v2/D5603AQEYkQ_EvVUb3Q/profile-displayphoto-shrink_800_800/B56ZcWw2oUGQAc-/0/1748433596019?e=1755129600&v=beta&t=JbZH9FyGT60FCwuS6uve0cBd6PhYFz0KPpsukSiw1iA',
     },
   ];
 
@@ -223,12 +230,20 @@ const About = () => {
                       {/* Avatar and Header */}
                       <div className="text-center space-y-3 sm:space-y-4">
                         <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-slate-400 to-slate-600 rounded-full mx-auto flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                          <span className="text-lg sm:text-2xl font-bold text-white">
-                            {member.name
-                              .split(' ')
-                              .map((n) => n[0])
-                              .join('')}
-                          </span>
+                          {member.image ? (
+                            <img
+                              src={member.image}
+                              alt={member.name}
+                              className="w-full h-full object-cover rounded-full"
+                            />
+                          ) : (
+                            <span className="text-lg sm:text-2xl font-bold text-white">
+                              {member.name
+                                .split(' ')
+                                .map((n) => n[0])
+                                .join('')}
+                            </span>
+                          )}
                         </div>
                         <div>
                           <h4 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-green-600 transition-colors">
