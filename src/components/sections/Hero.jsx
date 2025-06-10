@@ -153,24 +153,24 @@ const Hero = () => {
       </div>
 
       <Container className="relative z-10 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-24 items-center py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-0">
           {/* Left Content - Simplified */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8 text-center lg:text-left"
           >
-            {/* Badge */}
+            {/* Badge - Moved to top */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="inline-flex items-center gap-3 bg-green-100/80 backdrop-blur-sm text-green-700 text-sm font-semibold px-6 py-3 rounded-full border border-green-200/60 shadow-lg">
-                <Network className="w-5 h-5" />
+              <div className="inline-flex items-center gap-2 sm:gap-3 bg-green-100/80 backdrop-blur-sm text-green-700 text-xs sm:text-sm font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-green-200/60 shadow-lg">
+                <Network className="w-4 h-4 sm:w-5 sm:h-5" />
                 RAG + Knowledge Graphs
-                <Sparkles className="w-5 h-5" />
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
             </motion.div>
 
@@ -179,9 +179,9 @@ const Hero = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[0.9] tracking-tight">
+              <h1 className=" text-6xl font-bold text-slate-900 leading-tight sm:leading-[0.9] tracking-tight">
                 Intelligent{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-green-600">
                   Knowledge
@@ -195,7 +195,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-lg text-slate-600 leading-relaxed max-w-2xl"
+              className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             >
               Domain-specific chatbot powered by RAG systems, LLMs, and
               knowledge graphs for intelligent document analysis. We extract
@@ -208,13 +208,13 @@ const Hero = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start text-center"
             >
-              <button className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group">
+              <button className="inline-flex justify-center  items-center gap-2 bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group text-sm sm:text-base touch-manipulation min-h-[48px]">
                 Explore System
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm text-slate-700 px-8 py-4 rounded-xl font-medium border border-slate-200 hover:bg-slate-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+              <button className="inline-flex justify-center items-center gap-2 bg-white/80 backdrop-blur-sm text-slate-700 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium border border-slate-200 hover:bg-slate-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-sm sm:text-base touch-manipulation min-h-[48px]  ">
                 View Demo
               </button>
             </motion.div>
@@ -225,26 +225,26 @@ const Hero = () => {
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative"
+            className="relative  lg:order-last"
           >
-            <div className="relative w-full h-[500px] flex items-center justify-center">
+            <div className="relative w-full h-[350px] sm:h-[400px] lg:h-[500px] flex items-center justify-center">
               {/* Simple Workflow Cards */}
-              <div className="grid grid-cols-2 gap-8 w-full max-w-md">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 w-full max-w-sm sm:max-w-md">
                 {/* Document Upload */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
-                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-slate-200/60 text-center"
+                  className="bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-slate-200/60 text-center"
                 >
                   <motion.div
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4"
                   >
-                    <FileText className="w-6 h-6 text-blue-600" />
+                    <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                   </motion.div>
-                  <h3 className="text-sm font-semibold text-slate-800 mb-2">
+                  <h3 className="text-xs sm:text-sm font-semibold text-slate-800 mb-1 sm:mb-2">
                     Document Input
                   </h3>
                   <p className="text-xs text-slate-600">
@@ -257,7 +257,7 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
-                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-slate-200/60 text-center"
+                  className="bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-slate-200/60 text-center"
                 >
                   <motion.div
                     animate={{ rotate: [0, 360] }}
@@ -266,11 +266,11 @@ const Hero = () => {
                       repeat: Infinity,
                       ease: 'linear',
                     }}
-                    className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4"
                   >
-                    <Network className="w-6 h-6 text-emerald-600" />
+                    <Network className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600" />
                   </motion.div>
-                  <h3 className="text-sm font-semibold text-slate-800 mb-2">
+                  <h3 className="text-xs sm:text-sm font-semibold text-slate-800 mb-1 sm:mb-2">
                     Knowledge Graph
                   </h3>
                   <p className="text-xs text-slate-600">
@@ -283,16 +283,16 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.0 }}
-                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-slate-200/60 text-center"
+                  className="bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-slate-200/60 text-center"
                 >
                   <motion.div
                     animate={{ scale: [1, 1.2, 1] }}
                     transition={{ duration: 3, repeat: Infinity }}
-                    className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4"
                   >
-                    <Brain className="w-6 h-6 text-green-600" />
+                    <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
                   </motion.div>
-                  <h3 className="text-sm font-semibold text-slate-800 mb-2">
+                  <h3 className="text-xs sm:text-sm font-semibold text-slate-800 mb-1 sm:mb-2">
                     AI Processing
                   </h3>
                   <p className="text-xs text-slate-600">LLM analysis & RAG</p>
@@ -303,7 +303,7 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.2 }}
-                  className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-slate-200/60 text-center"
+                  className="bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-slate-200/60 text-center"
                 >
                   <motion.div
                     animate={{
@@ -314,11 +314,11 @@ const Hero = () => {
                       ],
                     }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mx-auto mb-4"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-cyan-100 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4"
                   >
-                    <MessageCircle className="w-6 h-6 text-cyan-600" />
+                    <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-600" />
                   </motion.div>
-                  <h3 className="text-sm font-semibold text-slate-800 mb-2">
+                  <h3 className="text-xs sm:text-sm font-semibold text-slate-800 mb-1 sm:mb-2">
                     Smart Response
                   </h3>
                   <p className="text-xs text-slate-600">Intelligent answers</p>
@@ -379,7 +379,7 @@ const Hero = () => {
               {[...Array(8)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-2 h-2 rounded-full bg-green-400/60"
+                  className="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-400/60"
                   style={{
                     left: `${20 + Math.random() * 60}%`,
                     top: `${20 + Math.random() * 60}%`,
@@ -406,21 +406,21 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.5 }}
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-center"
+          className="absolute bottom-6 sm:bottom-12 left-1/2 transform -translate-x-1/2 text-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center space-y-3"
+            className="flex flex-col items-center space-y-2 sm:space-y-3"
           >
-            <div className="w-8 h-12 border-2 border-slate-400 rounded-full flex justify-center">
+            <div className="w-6 h-10 sm:w-8 sm:h-12 border-2 border-slate-400 rounded-full flex justify-center">
               <motion.div
                 animate={{ y: [0, 16, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="w-1.5 h-4 bg-green-500 rounded-full mt-2"
+                className="w-1 h-3 sm:w-1.5 sm:h-4 bg-green-500 rounded-full mt-1.5 sm:mt-2"
               />
             </div>
-            <ArrowDown className="w-5 h-5 text-slate-400" />
+            <ArrowDown className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
           </motion.div>
         </motion.div>
       </Container>
