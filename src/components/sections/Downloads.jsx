@@ -258,7 +258,7 @@ const Downloads = () => {
                               <a
                                 className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors group-hover:scale-105 duration-300"
                                 href={item.link}
-                                download
+                                download={item.filename}
                                 target="_blank"
                               >
                                 <Download className="w-4 h-4" />
