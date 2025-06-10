@@ -246,13 +246,13 @@ const Technologies = () => {
           </motion.div>
 
           {/* Bottom CTA Section */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 1.0 }}
             className="bg-gradient-to-br from-slate-50 to-green-50/30 rounded-3xl border border-slate-200 p-8 md:p-12 text-center relative overflow-hidden"
           >
-            {/* Background Elements */}
+
             <div className="absolute top-0 right-0 w-40 h-40 bg-green-100/50 rounded-full -translate-y-20 translate-x-20 blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-green-200/30 rounded-full translate-y-16 -translate-x-16 blur-2xl"></div>
 
@@ -280,7 +280,7 @@ const Technologies = () => {
                 </button>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </Container>
     </Section>

@@ -175,13 +175,13 @@ const Objectives = () => {
           </div>
 
           {/* Bottom Section */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 1.2 }}
             className="bg-white rounded-2xl border border-slate-200 p-8 md:p-12 relative"
           >
-            {/* Decorative elements */}
+
             <div className="absolute top-4 right-4 w-20 h-20 bg-green-50 rounded-full opacity-50"></div>
             <div className="absolute bottom-4 left-4 w-16 h-16 bg-green-100 rounded-full opacity-30"></div>
 
@@ -210,7 +210,7 @@ const Objectives = () => {
                 </button>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </Container>
     </Section>

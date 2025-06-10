@@ -209,13 +209,13 @@ const Methodology = () => {
           </div>
 
           {/* Bottom CTA Section */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 1.2 }}
             className="bg-white rounded-2xl border border-slate-200 p-8 md:p-12 text-center relative overflow-hidden"
           >
-            {/* Background Elements */}
+
             <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full -translate-y-16 translate-x-16"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-green-100 rounded-full translate-y-12 -translate-x-12"></div>
 
@@ -243,7 +243,7 @@ const Methodology = () => {
                 </button>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </Container>
     </Section>

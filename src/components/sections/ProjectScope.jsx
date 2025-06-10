@@ -209,7 +209,7 @@ const ProjectScope = () => {
           </div>
 
           {/* Bottom CTA */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 1.0 }}
@@ -242,7 +242,7 @@ const ProjectScope = () => {
                 </button>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </Container>
     </Section>

@@ -45,22 +45,22 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      value: 'research@university.edu',
+      value: 'kavindamadhuranga74@gmail.com',
       description: 'Send us an email anytime',
-      link: 'mailto:research@university.edu',
+      link: 'mailto:kavindamadhuranga74@gmail.com',
     },
     {
       icon: Phone,
       title: 'Call Us',
-      value: '+1 (555) 123-4567',
+      value: '+94 77 52 58 11 3',
       description: 'Mon-Fri from 8am to 5pm',
-      link: 'tel:+15551234567',
+      link: 'tel:+94775258113',
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      value: '123 University Ave, City, State 12345',
-      description: 'Come say hello at our office',
+      value: 'Faculty of Technology, University of Sri Jayewardenepura',
+      description: 'Come say hello',
       link: '#',
     },
   ];
@@ -256,13 +256,13 @@ const Contact = () => {
           </div>
 
           {/* Bottom CTA */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
             className="bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-12 text-center relative overflow-hidden"
           >
-            {/* Background Elements */}
+
             <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full -translate-y-16 translate-x-16"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-green-100 rounded-full translate-y-12 -translate-x-12"></div>
 
@@ -290,7 +290,7 @@ const Contact = () => {
                 </button>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </Container>
     </Section>
