@@ -13,6 +13,7 @@ import Section from '../ui/Section';
 import Container from '../ui/Container';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
+import { li } from 'framer-motion/client';
 
 const Downloads = () => {
   const [ref, inView] = useInView({
@@ -22,51 +23,67 @@ const Downloads = () => {
 
   const downloadCategories = [
     {
-      title: 'Topic Assessment',
+      title: 'Project Proposals',
       icon: FileText,
-      description: 'Initial project evaluation and research scope definition',
+      description: 'Research proposals from team members',
       items: [
         {
-          name: 'Topic Assessment Document',
+          name: 'Research Proposal Document',
           description:
-            'Comprehensive project assessment covering objectives, scope, and feasibility analysis',
-          filename: 'Topic_Assessment.pdf',
-          size: '2.4 MB',
-          date: 'July 2024',
+            'Detailed project proposal outlining research objectives, methodology, and expected outcomes',
+          filename: 'Research_Proposal.pdf',
+          size: '1 MB',
+          date: 'Sept 2024',
+          author: 'Team',
+          link: '/downloads/Evaluation_01_Report.pdf',
+        },
+        {
+          name: 'Research Proposal Presentation',
+          description:
+            'Presentation summarizing the research proposal and key objectives',
+
+          filename: 'Research_Proposal_Presentation.pptx',
+          size: '3.3 MB',
+          date: 'Sept 2024',
+          author: 'Team',
+          link: '/downloads/Evaluation_01_Report.pdf',
         },
       ],
     },
     {
-      title: 'Project Proposals',
+      title: 'Research Evaluation',
       icon: FileText,
-      description: 'Individual research proposals from team members',
+      description: 'Research proposals from team members',
       items: [
         {
-          name: 'Proposal Report - IT21324406',
+          name: 'Evaluation 01 - Report',
           description:
-            'Individual project proposal with detailed research methodology and timeline',
-          filename: 'Proposal_Report_IT21324406.pdf',
-          size: '3.1 MB',
-          date: 'August 2024',
-          author: 'Team Member 1',
+            'Evaluation report for the first research proposal, including feedback and suggestions',
+          filename: 'Evaluation_01_Report.pdf',
+          size: '1.2 MB',
+          date: 'Dec 2024',
+          author: 'Team',
+          link: '/downloads/Evaluation_01_Report.pdf',
         },
         {
-          name: 'Proposal Report - IT21215360',
+          name: 'Evaluation 01 - Presentation',
           description:
-            'Individual project proposal focusing on UI adaptation algorithms',
-          filename: 'Proposal_Report_IT21215360.pdf',
-          size: '2.8 MB',
-          date: 'August 2024',
-          author: 'Team Member 2',
+            'Presentation summarizing the evaluation findings and recommendations',
+          filename: 'Evaluation_01_Presentation.pptx',
+          size: '22 MB',
+          date: 'Dec 2024',
+          author: 'Team',
+          link: '/downloads/Evaluation_01_Report.pdf',
         },
         {
-          name: 'Proposal Report - IT17117210',
+          name: 'Evaluation 02 - Presentation',
           description:
-            'Individual project proposal emphasizing machine learning integration',
-          filename: 'Proposal_Report_IT17117210.pdf',
-          size: '3.2 MB',
-          date: 'August 2024',
-          author: 'Team Member 3',
+            'Presentation summarizing the evaluation findings and recommendations',
+          filename: 'Evaluation_02_Presentation.pptx',
+          size: '4 MB',
+          date: 'April 2025',
+          author: 'Team',
+          link: '/downloads/Evaluation_01_Report.pdf',
         },
       ],
     },
@@ -76,13 +93,14 @@ const Downloads = () => {
       description: 'Complete project documentation and research findings',
       items: [
         {
-          name: 'Final Report',
+          name: 'Thesis Document',
           description:
             'Comprehensive documentation of research findings, methodology, and conclusions',
-          filename: 'Final_Report.pdf',
+          filename: 'Thesis.pdf',
           size: 'TBD',
-          date: 'May 2025',
+          date: 'June 2025',
           disabled: true,
+          link: '/downloads/Evaluation_01_Report.pdf',
         },
         {
           name: 'Research Paper',
@@ -90,33 +108,9 @@ const Downloads = () => {
             'Published research paper with peer-reviewed findings and contributions',
           filename: 'Research_Paper.pdf',
           size: 'TBD',
-          date: 'June 2025',
+          date: 'July 2025',
           disabled: true,
-        },
-      ],
-    },
-    {
-      title: 'Presentations',
-      icon: Presentation,
-      description: 'Project presentation slides and materials',
-      items: [
-        {
-          name: 'Progress Presentation',
-          description:
-            'Mid-project progress review with current achievements and next steps',
-          filename: 'Progress_Presentation.pptx',
-          size: 'TBD',
-          date: 'March 2025',
-          disabled: true,
-        },
-        {
-          name: 'Final Presentation',
-          description:
-            'Complete project presentation showcasing results and demonstrations',
-          filename: 'Final_Presentation.pptx',
-          size: 'TBD',
-          date: 'May 2025',
-          disabled: true,
+          link: '/downloads/Evaluation_01_Report.pdf',
         },
       ],
     },
@@ -261,10 +255,15 @@ const Downloads = () => {
                                 Coming Soon
                               </div>
                             ) : (
-                              <button className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors group-hover:scale-105 duration-300">
+                              <a
+                                className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors group-hover:scale-105 duration-300"
+                                href={item.link}
+                                download
+                                target="_blank"
+                              >
                                 <Download className="w-4 h-4" />
                                 Download
-                              </button>
+                              </a>
                             )}
                           </div>
                         </div>
