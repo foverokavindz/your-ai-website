@@ -23,32 +23,41 @@ const LiteratureSurvey = () => {
   });
 
   const keyFindings = [
-    { percentage: '72%', text: 'favor customized Chrome extensions' },
-    { percentage: '69%', text: 'prefer flexible content summaries' },
-    { percentage: '80%', text: 'prefer chatbot-based Q&A' },
-    { percentage: '85%', text: 'benefit from automated accessibility' },
+    {
+      percentage: '12%',
+      text: 'improvement in context relevance (Hybrid RAG)',
+    },
+    {
+      percentage: '30%',
+      text: 'boost in diagnostic retrievals (Healthcare RAG)',
+    },
+    {
+      percentage: '60%',
+      text: 'reduction in manual graph annotation (AutoKG)',
+    },
+    { percentage: '40%', text: 'faster deployment with AutoRAG' },
   ];
 
   const researchAreas = [
     {
       icon: Brain,
-      title: 'AI Integration',
-      description: 'Advanced LLMs for real-time personalization',
-    },
-    {
-      icon: MessageSquare,
-      title: 'Chatbot Support',
-      description: 'Natural language document queries',
+      title: 'LLM Integration',
+      description: 'Entity and relation extraction from free text',
     },
     {
       icon: Network,
-      title: 'Mind Maps',
-      description: 'Visual content comprehension',
+      title: 'Hybrid RAG Models',
+      description: 'Combining graph + vector retrieval mechanisms',
     },
     {
-      icon: Eye,
-      title: 'Accessibility',
-      description: 'Dynamic theme adaptation',
+      icon: Users,
+      title: 'AutoRAG & AutoKG',
+      description: 'Automation of model selection and KG creation',
+    },
+    {
+      icon: FileText,
+      title: 'Domain Glossary Support',
+      description: 'Disambiguation via context-aware definitions',
     },
   ];
 
@@ -73,8 +82,9 @@ const LiteratureSurvey = () => {
                 Literature Survey
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Examining the current landscape of UI personalization research
-                and identifying key opportunities
+                Exploring the recent developments in Knowledge Graph-based
+                Retrieval-Augmented Generation systems and their real-world
+                applications.
               </p>
             </div>
           </div>
@@ -87,51 +97,62 @@ const LiteratureSurvey = () => {
                 <div className="space-y-6">
                   <div className="border-l-4 border-green-500 pl-6 bg-green-50 py-4 rounded-r-lg">
                     <p className="text-slate-700 leading-relaxed">
-                      <strong>User Interface (UI) personalization</strong> has
-                      emerged as a vital research area within Human Computer
-                      Interaction (HCI), especially as the volume of digital
-                      content and diversity of user needs continue to grow.
+                      <strong>
+                        Knowledge Graph-based Retrieval-Augmented Generation
+                        (RAG)
+                      </strong>{' '}
+                      has emerged as a cutting-edge solution for extracting
+                      meaningful, context-rich information from large volumes of
+                      unstructured legal, technical, and operational documents.
                     </p>
                   </div>
 
                   <p className="text-slate-600 leading-relaxed">
-                    Traditional static UI designs are no longer sufficient to
-                    address cognitive, behavioral, and accessibility demands.
-                    Research has demonstrated that{' '}
-                    <span className="text-green-600 font-semibold">
-                      adaptive interfaces
+                    Traditional keyword-based retrieval systems often fail with
+                    domain-specific terms or complex sentence structures. Recent
+                    advancements, including hybrid RAG models like{' '}
+                    <span className="font-semibold text-green-600">
+                      VectorRAG
+                    </span>{' '}
+                    and{' '}
+                    <span className="font-semibold text-green-600">
+                      GraphRAG
                     </span>
-                    , particularly those enhanced through Artificial
-                    Intelligence (AI), lead to significant improvements in
-                    usability, task efficiency, and user engagement.
+                    , along with automation tools like{' '}
+                    <span className="font-semibold text-green-600">
+                      AutoRAG
+                    </span>{' '}
+                    and{' '}
+                    <span className="font-semibold text-green-600">AutoKG</span>
+                    , significantly boost precision, adaptability, and ease of
+                    deployment.
                   </p>
 
-                  {/* Process Flow */}
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="font-semibold text-slate-900 mb-4 text-center">
-                      AI-Powered UI Personalization Process
+                      Intelligent Retrieval System Workflow
                     </h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {[
                         {
                           icon: BookOpen,
-                          title: 'Data Input',
-                          desc: 'User behavior',
+                          title: 'Document Input',
+                          desc: 'Scanned PDFs, logs, metadata',
                         },
                         {
                           icon: Brain,
-                          title: 'AI Processing',
-                          desc: 'Pattern analysis',
+                          title: 'Knowledge Extraction',
+                          desc: 'LLMs + AutoKG pipelines',
                         },
                         {
                           icon: Network,
-                          title: 'Personalization',
-                          desc: 'UI adaptation',
+                          title: 'Graph Construction',
+                          desc: 'Entities + Relations (Neo4j)',
                         },
                         {
                           icon: TrendingUp,
-                          title: 'Feedback',
-                          desc: 'User metrics',
+                          title: 'Query Response',
+                          desc: 'Hybrid RAG + Dictionary aid',
                         },
                       ].map((step, index) => (
                         <div key={index} className="text-center group">
@@ -148,13 +169,9 @@ const LiteratureSurvey = () => {
                   </div>
 
                   <p className="text-slate-600 leading-relaxed">
-                    Recent advances in abstractive summarization using{' '}
-                    <span className="text-green-600 font-semibold">
-                      Large Language Models (LLMs)
-                    </span>
-                    , such as OpenAI's GPT-3.5, have enabled high-context,
-                    human-like summary generation, suitable for real-time
-                    personalized experiences in browser extensions.
+                    These innovations not only accelerate information extraction
+                    but dramatically improve interpretability and relevance
+                    across heterogeneous document types.
                   </p>
                 </div>
               </Card>
@@ -191,14 +208,14 @@ const LiteratureSurvey = () => {
             </div>
           </div>
 
-          {/* Research Areas */}
+          {/* Key Research Areas */}
           <div className="space-y-8">
             <div className="text-center">
               <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
                 Key Research Areas
               </h3>
               <p className="text-slate-600">
-                Focus areas driving innovation in UI personalization
+                Focus areas advancing intelligent retrieval systems
               </p>
             </div>
 
@@ -225,81 +242,6 @@ const LiteratureSurvey = () => {
               ))}
             </div>
           </div>
-
-          {/* References Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.8, duration: 0.6 }}
-          >
-            <Card className="p-8 bg-white border border-slate-200">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-green-50 border border-green-200 rounded-xl flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-green-600" />
-                </div>
-                <h3 className="font-bold text-slate-900 text-xl">References</h3>
-              </div>
-
-              <div className="space-y-3 text-sm text-slate-600">
-                {[
-                  'Liu, J., et al. (2024). Adaptive User Interfaces in Modern Web Applications. ACM Transactions on Computer-Human Interaction.',
-                  'OpenAI Research Team. (2023). GPT-3.5: Advanced Language Models for Real-time Applications.',
-                  'Brown, T. et al. (2020). Language Models are Few-Shot Learners. Neural Information Processing Systems.',
-                  'Richardson, E., et al. (2023). Automatic Mind Map Generation for Enhanced User Comprehension.',
-                  'Smith, A. & Johnson, B. (2023). Accessibility-Driven UI Personalization: A Comprehensive Study.',
-                ].map((ref, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.9 + index * 0.05, duration: 0.4 }}
-                    className="flex items-start gap-3 hover:bg-slate-50 p-2 rounded transition-colors"
-                  >
-                    <span className="font-semibold text-green-600 mt-0.5">
-                      [{index + 1}]
-                    </span>
-                    <span className="leading-relaxed">{ref}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </Card>
-          </motion.div>
-
-          {/* Bottom CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-12 text-center relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full -translate-y-16 translate-x-16"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-green-100 rounded-full translate-y-12 -translate-x-12"></div>
-
-            <div className="relative z-10 space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900">
-                  Explore our research
-                </h3>
-                <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                  Discover how our{' '}
-                  <span className="text-green-600 font-semibold">
-                    literature findings
-                  </span>{' '}
-                  inform our innovative approach to UI personalization.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors">
-                  View methodology
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <button className="inline-flex items-center gap-2 bg-white text-slate-900 px-8 py-3 rounded-lg font-medium border border-slate-200 hover:bg-slate-50 transition-colors">
-                  Read full survey
-                </button>
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </Container>
     </Section>

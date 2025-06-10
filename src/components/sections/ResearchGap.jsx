@@ -21,23 +21,23 @@ const ResearchGap = () => {
   const gaps = [
     {
       icon: AlertTriangle,
-      title: 'Limited Real-time Adaptation',
+      title: 'Lack of Domain-Specific Dictionaries',
       description:
-        'Current systems lack sophisticated real-time adaptation mechanisms that can respond to immediate user behavior changes.',
+        'Existing systems like AutoKG do not integrate curated domain-specific dictionaries, limiting disambiguation of rare or specialized terms during graph construction and vector embedding.',
       number: '01',
     },
     {
       icon: Target,
-      title: 'Insufficient User Context',
+      title: 'AutoRAG Vocabulary Limitations',
       description:
-        "Existing solutions don't fully leverage contextual information such as user environment, task complexity, and temporal patterns.",
+        "AutoRAG's greedy search optimizes for speed but may overlook low-frequency, high-importance vocabulary, particularly in corpora with specialized jargon.",
       number: '02',
     },
     {
       icon: Lightbulb,
-      title: 'Generic Personalization',
+      title: 'Scarce Heterogeneous Corpus Evaluations',
       description:
-        'Most current approaches use one-size-fits-all personalization rather than truly individualized adaptation strategies.',
+        'Comprehensive evaluations on heterogeneous corpora, combining scanned PDFs, structured metadata, embedded tables, and domain glossaries, remain scarce.',
       number: '03',
     },
   ];
@@ -45,20 +45,21 @@ const ResearchGap = () => {
   const features = [
     {
       icon: CheckCircle2,
-      title: 'Real-time Analysis',
+      title: 'Dictionary-Enhanced Module',
       description:
-        'Advanced behavior tracking and instant adaptation mechanisms',
+        'Integrates a context-aware dictionary to label knowledge graph nodes with precise definitions, aiding retrieval and disambiguation.',
     },
     {
       icon: CheckCircle2,
-      title: 'Context Awareness',
+      title: 'Automated RAG Optimization',
       description:
-        'Comprehensive environmental and temporal pattern recognition',
+        'Combines AutoRAG and AutoKG methodologies for optimal RAG configuration and rapid knowledge graph construction with minimal oversight.',
     },
     {
       icon: CheckCircle2,
-      title: 'True Personalization',
-      description: 'Individual-specific adaptation strategies and preferences',
+      title: 'Heterogeneous Corpus Evaluation',
+      description:
+        'Evaluates performance across retrieval precision, response coherence, and disambiguation accuracy on mixed-format datasets with glossary support.',
     },
   ];
 
@@ -83,8 +84,8 @@ const ResearchGap = () => {
               <span className="text-green-600">research gaps</span>.
             </h2>
             <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-              Understanding current limitations to build better solutions for UI
-              personalization.
+              Understanding current limitations to build better solutions for
+              knowledge graph-based information retrieval.
             </p>
             <button className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors">
               Explore gaps
@@ -122,8 +123,8 @@ const ResearchGap = () => {
                       Critical Limitations Found
                     </h3>
                     <p className="text-slate-600 text-sm leading-relaxed">
-                      Current UI personalization systems show significant gaps
-                      in adaptation capabilities
+                      Current knowledge graph-based RAG systems show significant
+                      gaps in domain-specific retrieval capabilities
                     </p>
 
                     <div className="mt-6 p-4 bg-slate-50 rounded-lg">

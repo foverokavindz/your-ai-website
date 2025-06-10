@@ -151,7 +151,11 @@ const ProjectScope = () => {
                       </div>
 
                       <div className="grid grid-cols-3 gap-4 text-center">
-                        {['AI', 'UX', 'Adaptive'].map((item, index) => (
+                        {[
+                          'Artificial Inteligence',
+                          'Knowldage Graph',
+                          'Modern Web App',
+                        ].map((item, index) => (
                           <div
                             key={index}
                             className="bg-white rounded-lg p-3 border border-green-100"
