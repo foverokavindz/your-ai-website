@@ -56,7 +56,7 @@ const About = () => {
         'API Integration',
       ],
       image:
-        'https://media.licdn.com/dms/image/v2/D5603AQEG5p_xS3wDMQ/profile-displayphoto-shrink_800_800/B56ZTv51GfGoAk-/0/1739191702887?e=1755129600&v=beta&t=LfAbdtHFNgl4LDAjqQNDCEOgq9q1xGIqGZztJ7RY9Hw',
+        'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/kavinda.jpg',
     },
     {
       name: 'Nipuni Nishadini',
@@ -72,7 +72,7 @@ const About = () => {
         'System Architecture',
       ],
       image:
-        'https://media.licdn.com/dms/image/v2/D4D03AQGB0dxoMaUfGQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1708519639261?e=1755129600&v=beta&t=saNAY7RWotm_hfc6n58dzhTgbPg3birmPKZpga5N3To',
+        'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/nipuni.jpg',
     },
     {
       name: 'Dulan Jayewikrama',
@@ -88,7 +88,7 @@ const About = () => {
         'Prompt Engineering',
       ],
       image:
-        'https://media.licdn.com/dms/image/v2/D5603AQEYkQ_EvVUb3Q/profile-displayphoto-shrink_800_800/B56ZcWw2oUGQAc-/0/1748433596019?e=1755129600&v=beta&t=JbZH9FyGT60FCwuS6uve0cBd6PhYFz0KPpsukSiw1iA',
+        'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/dulan.jpg',
     },
   ];
 
