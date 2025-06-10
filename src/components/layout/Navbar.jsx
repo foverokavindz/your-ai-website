@@ -36,11 +36,11 @@ const Navbar = () => {
     <>
       {/* Glassmorphism Island Navbar */}
       <motion.nav
-        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ${
+        className={`fixed top-2 sm:top-4 left-2 right-2 sm:left-1/2 sm:right-auto sm:transform sm:-translate-x-1/2 z-50 transition-all duration-500 ${
           scrolled
             ? 'bg-white/95 backdrop-blur-xl border border-slate-200/50 shadow-xl shadow-black/5'
             : 'bg-white/80 backdrop-blur-xl border border-white/30 shadow-lg shadow-black/10'
-        } rounded-2xl px-6 py-3`}
+        } rounded-2xl px-3 sm:px-6 py-2 sm:py-3 max-w-full sm:max-w-none`}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -59,16 +59,16 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-              <Brain className="w-6 h-6 text-white" />
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
+              <Brain className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
             </div>
-            <span className="font-bold text-lg text-slate-900 transition-colors duration-300">
-              UI Research
+            <span className="font-bold text-base sm:text-lg text-slate-900 transition-colors duration-300">
+              Your AI
             </span>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-2 ml-10">
+          <div className="hidden lg:flex items-center space-x-2 ml-10">
             {navItems.map((item, index) => (
               <div
                 key={item.name}
@@ -121,7 +121,7 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <motion.button
-            className="md:hidden p-2 rounded-xl transition-colors duration-300 hover:bg-green-50/70 text-slate-700"
+            className="lg:hidden p-2 rounded-xl transition-colors duration-300 hover:bg-green-50/70 text-slate-700 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center"
             onClick={() => setIsOpen(!isOpen)}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -135,7 +135,7 @@ const Navbar = () => {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -145,7 +145,7 @@ const Navbar = () => {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu className="w-6 h-6" />
+                  <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -159,7 +159,7 @@ const Navbar = () => {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -168,7 +168,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             <motion.div
-              className="fixed top-20 left-4 right-4 z-50 md:hidden bg-white/95 backdrop-blur-xl rounded-2xl border border-slate-200/50 shadow-2xl overflow-hidden"
+              className="fixed top-16 sm:top-20 left-2 right-2 sm:left-4 sm:right-4 z-50 lg:hidden bg-white/95 backdrop-blur-xl rounded-2xl border border-slate-200/50 shadow-2xl overflow-hidden max-h-[calc(100vh-5rem)] overflow-y-auto"
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
@@ -178,12 +178,12 @@ const Navbar = () => {
                 WebkitBackdropFilter: 'blur(20px)',
               }}
             >
-              <div className="px-6 py-6 space-y-2">
+              <div className="px-4 sm:px-6 py-4 sm:py-6 space-y-1 sm:space-y-2">
                 {navItems.map((item, index) => (
                   <div key={item.name}>
                     <motion.a
                       href={item.href}
-                      className="block px-4 py-3 text-base font-medium text-slate-700 hover:text-green-600 hover:bg-green-50/50 rounded-xl transition-colors duration-200"
+                      className="block px-3 sm:px-4 py-3 sm:py-3 text-base font-medium text-slate-700 hover:text-green-600 hover:bg-green-50/50 rounded-xl transition-colors duration-200 touch-manipulation min-h-[44px] flex items-center"
                       onClick={() => setIsOpen(false)}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -194,12 +194,12 @@ const Navbar = () => {
                       {item.name}
                     </motion.a>
                     {item.dropdown && (
-                      <div className="ml-4 space-y-1 mt-2">
+                      <div className="ml-2 sm:ml-4 space-y-1 mt-1 sm:mt-2">
                         {item.dropdown.map((dropdownItem, dropdownIndex) => (
                           <motion.a
                             key={dropdownItem.name}
                             href={dropdownItem.href}
-                            className="block px-4 py-2 text-sm text-slate-600 hover:text-green-600 hover:bg-green-50/30 rounded-lg transition-colors duration-200"
+                            className="block px-3 sm:px-4 py-2 sm:py-2 text-sm text-slate-600 hover:text-green-600 hover:bg-green-50/30 rounded-lg transition-colors duration-200 touch-manipulation min-h-[40px] flex items-center"
                             onClick={() => setIsOpen(false)}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}

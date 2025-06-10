@@ -50,26 +50,26 @@ const ProjectScope = () => {
   ];
 
   return (
-    <Section id="project-scope" className="py-24 bg-slate-50">
+    <Section id="project-scope" className="py-16 sm:py-20 lg:py-24 bg-slate-50">
       <Container>
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="space-y-16"
+          className="space-y-12 sm:space-y-16"
         >
           {/* Header Section */}
-          <div className="text-center space-y-6">
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-sm font-medium px-3 py-1.5 rounded-full">
-              <Lightbulb className="w-4 h-4" />
+          <div className="text-center space-y-4 sm:space-y-6">
+            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full">
+              <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4" />
               Research Overview
             </div>
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+            <div className="space-y-3 sm:space-y-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight px-4 sm:px-0">
                 Project Scope
               </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
                 Building a Knowledge Graph from Document Retrieval to Enhance
                 LLM-Powered Responses
               </p>
@@ -81,17 +81,18 @@ const ProjectScope = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
+            className="px-4 sm:px-0"
           >
-            <Card className="p-8 md:p-12 bg-white border border-slate-200 hover:border-green-200 hover:shadow-lg transition-all duration-300">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <Card className="p-6 sm:p-8 lg:p-12 bg-white border border-slate-200 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 {/* Content */}
-                <div className="space-y-6">
-                  <div className="space-y-4">
-                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
+                <div className="space-y-4 sm:space-y-6">
+                  <div className="space-y-3 sm:space-y-4">
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900">
                       Graph RAG System & Domain Specific Glossary
                     </h3>
 
-                    <p className="text-lg text-slate-600 leading-relaxed">
+                    <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
                       Develop a{' '}
                       <span className="text-green-600 font-semibold">
                         Graph RAG system
@@ -113,11 +114,11 @@ const ProjectScope = () => {
                   </div>
 
                   {/* Key Features */}
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-slate-900">
+                  <div className="space-y-3 sm:space-y-4">
+                    <h4 className="font-semibold text-slate-900 text-sm sm:text-base">
                       Key Features:
                     </h4>
-                    <div className="space-y-3">
+                    <div className="space-y-2 sm:space-y-3">
                       {keyFeatures.map((feature, index) => (
                         <motion.div
                           key={index}
@@ -127,10 +128,12 @@ const ProjectScope = () => {
                             delay: 0.4 + index * 0.1,
                             duration: 0.5,
                           }}
-                          className="flex items-start gap-3"
+                          className="flex items-start gap-2 sm:gap-3"
                         >
-                          <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-slate-600">{feature}</span>
+                          <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm sm:text-base text-slate-600">
+                            {feature}
+                          </span>
                         </motion.div>
                       ))}
                     </div>
@@ -138,29 +141,29 @@ const ProjectScope = () => {
                 </div>
 
                 {/* Visual Element */}
-                <div className="relative">
-                  <div className="bg-green-50 rounded-2xl p-8 border border-green-200">
-                    <div className="space-y-6">
+                <div className="relative order-first lg:order-last">
+                  <div className="bg-green-50 rounded-2xl p-6 sm:p-8 border border-green-200">
+                    <div className="space-y-4 sm:space-y-6">
                       <div className="text-center">
-                        <div className="w-20 h-20 bg-green-100 border border-green-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                          <Target className="w-10 h-10 text-green-600" />
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 border border-green-200 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                          <Target className="w-8 h-8 sm:w-10 sm:h-10 text-green-600" />
                         </div>
-                        <h4 className="font-semibold text-slate-900">
+                        <h4 className="font-semibold text-slate-900 text-sm sm:text-base">
                           Research Focus
                         </h4>
                       </div>
 
-                      <div className="grid grid-cols-3 gap-4 text-center">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center">
                         {[
-                          'Artificial Inteligence',
-                          'Knowldage Graph',
+                          'Artificial Intelligence',
+                          'Knowledge Graph',
                           'Modern Web App',
                         ].map((item, index) => (
                           <div
                             key={index}
-                            className="bg-white rounded-lg p-3 border border-green-100"
+                            className="bg-white rounded-lg p-2 sm:p-3 border border-green-100"
                           >
-                            <div className="text-sm font-medium text-green-700">
+                            <div className="text-xs sm:text-sm font-medium text-green-700">
                               {item}
                             </div>
                           </div>
@@ -174,17 +177,17 @@ const ProjectScope = () => {
           </motion.div>
 
           {/* Scope Areas */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8 px-4 sm:px-0">
             <div className="text-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mb-2">
                 Research Areas
               </h3>
-              <p className="text-slate-600">
+              <p className="text-sm sm:text-base text-slate-600">
                 Core focus areas that define our project boundaries
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {scopeAreas.map((area, index) => (
                 <motion.div
                   key={index}
@@ -192,14 +195,14 @@ const ProjectScope = () => {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
                 >
-                  <Card className="p-8 bg-white border border-slate-200 hover:border-green-200 hover:shadow-lg transition-all duration-300 text-center h-full group">
-                    <div className="w-16 h-16 bg-green-50 border border-green-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <area.icon className="w-8 h-8 text-green-600" />
+                  <Card className="p-6 sm:p-8 bg-white border border-slate-200 hover:border-green-200 hover:shadow-lg transition-all duration-300 text-center h-full group">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-50 border border-green-200 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <area.icon className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
                     </div>
-                    <h4 className="font-semibold text-slate-900 mb-3 group-hover:text-green-600 transition-colors">
+                    <h4 className="font-semibold text-slate-900 mb-2 sm:mb-3 group-hover:text-green-600 transition-colors text-sm sm:text-base">
                       {area.title}
                     </h4>
-                    <p className="text-slate-600 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                       {area.description}
                     </p>
                   </Card>
@@ -209,7 +212,7 @@ const ProjectScope = () => {
           </div>
 
           {/* Bottom CTA */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 1.0 }}
@@ -242,7 +245,7 @@ const ProjectScope = () => {
                 </button>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </Container>
     </Section>
