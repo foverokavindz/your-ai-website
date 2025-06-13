@@ -177,7 +177,7 @@ const ProjectScope = () => {
           </motion.div>
 
           {/* Scope Areas */}
-          <div className="space-y-6 sm:space-y-8 px-4 sm:px-0">
+          {/* <div className="space-y-6 sm:space-y-8 px-4 sm:px-0">
             <div className="text-center">
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mb-2">
                 Research Areas
@@ -209,7 +209,7 @@ const ProjectScope = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Bottom CTA */}
           {/* <motion.div

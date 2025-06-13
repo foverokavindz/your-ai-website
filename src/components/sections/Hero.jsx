@@ -169,7 +169,7 @@ const Hero = () => {
             >
               <div className="inline-flex items-center gap-2 sm:gap-3 bg-green-100/80 backdrop-blur-sm text-green-700 text-xs sm:text-sm font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-green-200/60 shadow-lg">
                 <Network className="w-4 h-4 sm:w-5 sm:h-5" />
-                RAG + Knowledge Graphs
+                RAG + Knowledge Graph
                 <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
             </motion.div>
@@ -199,7 +199,7 @@ const Hero = () => {
             >
               Domain-specific chatbot powered by RAG systems, LLMs, and
               knowledge graphs for intelligent document analysis. We extract
-              knowledge from documents, identify relationships, and create
+              knowledge from documents, identify Entities & Relationships, and create
               intelligent responses.
             </motion.p>
 
@@ -274,7 +274,7 @@ const Hero = () => {
                     Knowledge Graph
                   </h3>
                   <p className="text-xs text-slate-600">
-                    Extract relationships
+                    Extract Entities and Relationships
                   </p>
                 </motion.div>
 
