@@ -45,7 +45,7 @@ const About = () => {
     {
       name: 'Kavinda Weerasinghe',
       role: 'Frontend Development',
-      studentId: 'TE010101',
+      studentId: 'TE101487',
       specialization: 'Full-Stack Development & UI design',
       email: 'ict20956@fot.sjp.ac.lk ',
       linkedin: 'www.linkedin.com/in/kavinda-weerasinghe-1302a71b7',
@@ -61,7 +61,7 @@ const About = () => {
     {
       name: 'Nipuni Nishadini',
       role: 'Backend Development',
-      studentId: 'TE010101',
+      studentId: 'TE101451',
       specialization: 'Full-Stack Development & System Design',
       email: 'ict20826@fot.sjp.ac.lk',
       linkedin: 'https://www.linkedin.com/in/nipuninishadini/',
@@ -77,7 +77,7 @@ const About = () => {
     {
       name: 'Dulan Jayawickrama',
       role: 'AI Development',
-      studentId: 'TE0101594',
+      studentId: 'TE101594',
       specialization: 'AI devleopment & Machine Learning',
       email: 'ict20862@fot.sjp.ac.lk',
       linkedin: 'https://www.linkedin.com/in/dulan-jayawickrama/',
