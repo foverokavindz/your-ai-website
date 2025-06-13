@@ -59,7 +59,7 @@ const Footer = () => {
     },
     {
       icon: Mail,
-      href: 'mailto:kavindamadhuranga74@gmail.com',
+      href: 'mailto:ict20956@fot.sjp.ac.lk ',
       label: 'Email',
     },
   ];

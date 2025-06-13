@@ -45,9 +45,9 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      value: 'kavindamadhuranga74@gmail.com',
+      value: 'ict20956@fot.sjp.ac.lk ',
       description: 'Send us an email anytime',
-      link: 'mailto:kavindamadhuranga74@gmail.com',
+      link: 'mailto:ict20956@fot.sjp.ac.lk ',
     },
     {
       icon: Phone,

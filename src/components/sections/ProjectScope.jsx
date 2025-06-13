@@ -70,8 +70,8 @@ const ProjectScope = () => {
                 Project Scope
               </h2>
               <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-                Building a Knowledge Graph from Document Retrieval to Enhance
-                LLM-Powered Responses
+                Developing a Knowledge Graph-based 
+                Retrieval Augmented Generation (RAG) system for  Information Extraction
               </p>
             </div>
           </div>

@@ -50,7 +50,7 @@ const Technologies = () => {
         },
         {
           icon: Layers,
-          name: 'DeepInfra',
+          name: 'DeepInfra & Groq',
           description: 'LLM inference platform',
         },
         {
@@ -64,7 +64,7 @@ const Technologies = () => {
       title: 'Backend & Data Processing',
       description: 'Text analysis and natural language understanding',
       technologies: [
-        { icon: MessageSquare, name: 'spaCy', description: 'NLP library' },
+        { icon: MessageSquare, name: 'Neo4j', description: 'Graph database' },
         {
           icon: Boxes,
           name: 'Flask ',
@@ -83,7 +83,7 @@ const Technologies = () => {
       ],
     },
     {
-      title: 'Fronend Deployment',
+      title: 'Frontend Development',
       description: 'Modern web technologies and cloud infrastructure',
       technologies: [
         {

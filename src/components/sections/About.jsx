@@ -27,7 +27,7 @@ const About = () => {
       department: 'IT Department',
       specialization: 'Senior Lecturer',
       email: 'chamara@sjp.as.lk',
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/chamara-liyanage-91222140/',
       bio: '',
     },
     {
@@ -36,7 +36,7 @@ const About = () => {
       department: 'Sri Lanka Tea board',
       specialization: 'Assistance Director - IT',
       email: 'hiral@brd.ac.lk',
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/hiranwijesinghe/',
       bio: '',
     },
   ];
@@ -47,7 +47,7 @@ const About = () => {
       role: 'Frontend Development',
       studentId: 'TE010101',
       specialization: 'Full-Stack Development & UI design',
-      email: 'kavindamadhuranga74@gmail.com',
+      email: 'ict20956@fot.sjp.ac.lk ',
       linkedin: 'www.linkedin.com/in/kavinda-weerasinghe-1302a71b7',
       github: 'https://github.com/foverokavindz',
       contributions: [
@@ -75,9 +75,9 @@ const About = () => {
         'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/nipuni.jpg',
     },
     {
-      name: 'Dulan Jayewikrama',
-      role: 'AI development',
-      studentId: 'TE010101',
+      name: 'Dulan Jayawickrama',
+      role: 'AI Development',
+      studentId: 'TE0101594',
       specialization: 'AI devleopment & Machine Learning',
       email: 'ict20862@fot.sjp.ac.lk',
       linkedin: 'https://www.linkedin.com/in/dulan-jayawickrama/',

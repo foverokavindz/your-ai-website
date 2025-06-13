@@ -22,7 +22,7 @@ const Milestones = () => {
     },
     {
       date: 'August 2024',
-      title: 'Doamin Analysis',
+      title: 'Domain Analysis',
       description: 'Comprehensive domain analysis and requirements gathering',
       status: 'completed',
       quarter: 'Q3 2024',

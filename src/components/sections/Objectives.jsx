@@ -46,14 +46,14 @@ const Objectives = () => {
     },
     {
       icon: Users,
-      title: 'Extract Structured Knowledge',
+      title: 'Integrate Domain-specific Glossary',
       description:
         'Transform unstructured documents into knowledge graph representations to enable semantic organization and search.',
       number: '03',
       features: [
-        'Entity and relation extraction',
-        'Knowledge graph modeling',
-        'Semantic search support',
+        'Domain-specific terminolygy',
+        'Improved answer relevancy',
+        'Glossary-aided responses',
       ],
     },
     {
