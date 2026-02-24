@@ -1,253 +1,238 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import {
-  Brain,
-  Database,
-  Code,
-  ArrowRight,
-  CheckCircle,
-  Play,
-} from 'lucide-react';
 import Section from '../ui/Section';
 import Container from '../ui/Container';
-import Card from '../ui/Card';
 
-const Methodology = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.08 },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+});
 
-  const keyFeatures = [
-    'Knowledge Graph Integration',
-    'Glossary-Aided Responses',
-    'Semantic Context Retrieval',
-    'Large Language Models',
-    'Automated Processing',
-    'Domain-Specific Accuracy',
-  ];
+const steps = [
+  {
+    num: '01',
+    topic: 'Data Collection & Preprocessing',
+    subtopic: 'Document ingestion pipeline',
+    description:
+      'Gathering and preparing historical documents through a document management portal. PyMuPDF extracts clean text from PDFs, followed by chunking strategies for efficient downstream processing.',
+    tags: ['Document upload', 'Text extraction', 'Chunking'],
+  },
+  {
+    num: '02',
+    topic: 'Knowledge Graph Creation',
+    subtopic: 'Automated entity–relation extraction',
+    description:
+      'A pipeline constructs a semantically rich knowledge graph using LangChain\'s LLMGraphTransformer.Entities and relationships are extracted automatically and stored in a Neo4j graph database.',
+    tags: ['LLMGraphTransformer', 'Entity-relation mapping', 'Neo4j'],
+  },
+  {
+    num: '03',
+    topic: 'Graph-based Context Retrieval',
+    subtopic: 'Semantic graph traversal',
+    description:
+      'User queries are parsed to identify key entities. A Graph Retriever performs traversal over the knowledge graph to fetch related nodes and relationships, enriched with glossary definitions for richer context.',
+    tags: ['Graph traversal', 'Semantic search', 'Context enrichment'],
+  },
+  {
+    num: '04',
+    topic: 'LLM & Glossary Integration',
+    subtopic: 'Domain-aware response generation',
+    description:
+      'Large language models (Llama 3.1, Gemma 3) handle triple extraction and answer generation. A user-maintained glossary with fuzzy matching enhances domain-specific interpretive accuracy throughout the pipeline.',
+    tags: ['Llama 3.1 / Gemma 3', 'Glossary fuzzy match', 'Triple extraction'],
+  },
+  {
+    num: '05',
+    topic: 'Answer Generation & Delivery',
+    subtopic: 'Frontend response interface',
+    description:
+      'Context-aware responses are generated via prompt engineering with LLMs and delivered through a React.js-based frontend — providing a smooth, user-friendly natural language interface over institutional documents.',
+    tags: ['Prompt engineering', 'Context-aware answers', 'React.js frontend'],
+  },
+];
 
-  const steps = [
-    {
-      icon: Database,
-      title: 'Data Collection and Preprocessing',
-      description:
-        'This step involves gathering and preparing historical documents through a document management portal, using PyMuPDF to extract clean text from PDFs and chunking for efficient processing.',
-      highlights: ['Document upload', 'Text extraction', 'Preprocessing'],
-    },
-    {
-      icon: Database,
-      title: 'Knowledge Graph Creation',
-      description:
-        'A pipeline constructs a semantically rich knowledge graph using LangChain’s LLMGraphTransformer to extract entities and relationships, stored in a Neo4j graph database with automated techniques.',
-      highlights: [
-        'Automated extraction',
-        'Entity-relationship mapping',
-        'Neo4j storage',
-      ],
-    },
-    {
-      icon: Brain,
-      title: 'Graph-based Context Retrieval',
-      description:
-        'User queries are processed to extract key entities, with a Graph Retriever using graph traversal to retrieve related nodes and relationships, combined with glossary definitions for context.',
-      highlights: ['Semantic search', 'Graph traversal', 'Context integration'],
-    },
-    {
-      icon: Code,
-      title: 'Integration with LLM and Glossary',
-      description:
-        'Integrates LLMs (Llama 3.1, Gemma 3) for triple extraction and response generation, enhanced by a user-managed glossary with fuzzy matching to improve domain-specific interpretive accuracy.',
-      highlights: ['LLM processing', 'Glossary enhancement', 'Fuzzy matching'],
-    },
-    {
-      icon: Code,
-      title: 'Answer Generation and Delivery',
-      description:
-        'Generates context-aware responses via prompt engineering with LLMs, delivering them through a React.js-based frontend interface for a user-friendly experience.',
-      highlights: [
-        'Prompt engineering',
-        'Context-aware responses',
-        'Frontend delivery',
-      ],
-    },
-  ];
+const Methodology = () => (
+  <Section id="methodology" className="mth-section">
+    <Container>
 
-  return (
-    <Section id="methodology" className="py-16 sm:py-20 lg:py-24 bg-slate-50">
-      <Container>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="space-y-12 sm:space-y-16 lg:space-y-20"
-        >
-          {/* Header Section */}
-          <div className="text-center space-y-4 sm:space-y-6">
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full">
-              <Brain className="w-3 h-3 sm:w-4 sm:h-4" />
-              Research Approach
-            </div>
-            <div className="space-y-3 sm:space-y-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight px-4 sm:px-0">
-                Our Methodology
-              </h2>
-              <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-                A comprehensive approach combining knowledge graphs, large
-                language models, and glossary integration for domain-specific
-                information retrieval
-              </p>
+      {/* ── meta row ── */}
+      <motion.div className="mth-meta" {...fadeUp(0)}>
+        <span className="mth-eyebrow">Methodology</span>
+        <span className="mth-meta-num">06</span>
+      </motion.div>
+
+      {/* ── headline ── */}
+      <motion.h2 className="mth-headline" {...fadeUp(0.05)}>
+        Step-by-step Research Approach
+      </motion.h2>
+
+      {/* ── step rows ── */}
+      <div className="mth-steps">
+        {steps.map((step, i) => (
+          <motion.div key={i} className="mth-row" {...fadeUp(0.08 + i * 0.06)}>
+
+            {/* number */}
+            <span className="mth-num">{step.num}</span>
+
+            {/* topic + subtopic */}
+            <div className="mth-label-col">
+              <p className="mth-topic">{step.topic}</p>
+              <p className="mth-subtopic">{step.subtopic}</p>
             </div>
 
-            {/* Key Features Pills */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-6 sm:mt-8 px-4 sm:px-0">
-              {keyFeatures.map((feature, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-white text-slate-700 text-xs sm:text-sm font-medium rounded-full border border-slate-200 hover:border-green-200 hover:bg-green-50 transition-all duration-200"
-                >
-                  <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-1.5 sm:mr-2" />
-                  {feature}
-                </motion.span>
-              ))}
-            </div>
-          </div>
-
-          {/* Main Content Sections */}
-          <div className="space-y-16 sm:space-y-24 lg:space-y-32 px-4 sm:px-0">
-            {steps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.3 }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center ${
-                  index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-                }`}
-              >
-                {/* Visual/Image Side */}
-                <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} order-1 lg:order-none`}>
-                  <Card className="p-4 sm:p-6 lg:p-8 bg-white border border-slate-200 shadow-lg">
-                    <div className="aspect-video bg-gradient-to-br from-green-50 to-green-100 rounded-xl flex items-center justify-center relative overflow-hidden">
-                      {/* Background Pattern */}
-                      <div className="absolute inset-0 opacity-10">
-                        <div className="grid grid-cols-8 grid-rows-6 h-full w-full">
-                          {[...Array(48)].map((_, i) => (
-                            <div
-                              key={i}
-                              className="border border-green-300"
-                            ></div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Central Icon */}
-                      <div className="relative z-10 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-green-500 rounded-2xl flex items-center justify-center shadow-lg">
-                        <step.icon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white" />
-                      </div>
-
-                      {/* Floating Elements */}
-                      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 bg-white rounded-lg shadow-md flex items-center justify-center">
-                        <Play className="w-4 h-4 sm:w-6 sm:h-6 text-green-600" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 px-2 py-1 sm:px-3 sm:py-1 bg-white rounded-full text-xs font-medium text-slate-600 shadow-md">
-                        Step {index + 1}
-                      </div>
-                    </div>
-                  </Card>
-                </div>
-
-                {/* Content Side */}
-                <div
-                  className={`space-y-4 sm:space-y-6 ${
-                    index % 2 === 1 ? 'lg:col-start-1' : ''
-                  } order-2 lg:order-none`}
-                >
-                  <div className="space-y-3 sm:space-y-4">
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-50 border border-green-200 rounded-xl flex items-center justify-center">
-                        <step.icon className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
-                      </div>
-                      <span className="text-xs sm:text-sm font-bold text-green-600 bg-green-50 px-2 sm:px-3 py-1 rounded-full">
-                        Phase {index + 1}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900">
-                      {step.title}
-                    </h3>
-
-                    <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-
-                  {/* Highlights Pills */}
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {step.highlights.map((highlight, highlightIndex) => (
-                      <span
-                        key={highlightIndex}
-                        className="inline-flex items-center px-2 sm:px-3 py-1 bg-green-50 text-green-700 text-xs sm:text-sm font-medium rounded-full border border-green-200"
-                      >
-                        {highlight}
-                      </span>
-                    ))}
-                  </div>
-
-                  <button className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium transition-colors text-sm sm:text-base touch-manipulation">
-                    Learn more about this phase
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Bottom CTA Section */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="bg-white rounded-2xl border border-slate-200 p-8 md:p-12 text-center relative overflow-hidden"
-          >
-
-            <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full -translate-y-16 translate-x-16"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-green-100 rounded-full translate-y-12 -translate-x-12"></div>
-
-            <div className="relative z-10 space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900">
-                  Ready to explore our methodology?
-                </h3>
-                <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                  Discover how our systematic approach creates{' '}
-                  <span className="text-green-600 font-semibold">
-                    breakthrough innovations
-                  </span>{' '}
-                  in domain-specific information retrieval.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors">
-                  View detailed methodology
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <button className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-8 py-3 rounded-lg font-medium hover:bg-slate-200 transition-colors">
-                  Research papers
-                </button>
+            {/* description + tags */}
+            <div className="mth-desc-col">
+              <p className="mth-desc">{step.description}</p>
+              <div className="mth-tags">
+                {step.tags.map((t, j) => (
+                  <span key={j} className="mth-tag">{t}</span>
+                ))}
               </div>
             </div>
-          </motion.div> */}
-        </motion.div>
-      </Container>
-    </Section>
-  );
-};
+
+          </motion.div>
+        ))}
+      </div>
+
+    </Container>
+
+    <style>{`
+      .mth-section {
+        background: #F7F5F2;
+        padding: 6rem 0 5rem;
+        border-top: 1px solid var(--clr-border);
+      }
+
+      /* meta */
+      .mth-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+      }
+      .mth-eyebrow {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--clr-muted);
+      }
+      .mth-meta-num {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.75rem;
+        color: var(--clr-border);
+        letter-spacing: 0.1em;
+      }
+
+      /* headline */
+      .mth-headline {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 600;
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+        color: var(--clr-heading);
+        max-width: 600px;
+        margin-bottom: 3.5rem;
+      }
+
+      /* ── step list ── */
+      .mth-steps {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* individual row */
+      .mth-row {
+        display: grid;
+        grid-template-columns: 3rem 1fr 1.6fr;
+        gap: 0 3rem;
+        align-items: start;
+        border-top: 1px solid var(--clr-border);
+        padding: 2rem 0;
+      }
+      .mth-row:last-child {
+        border-bottom: 1px solid var(--clr-border);
+      }
+
+      @media (max-width: 820px) {
+        .mth-row {
+          grid-template-columns: 2.5rem 1fr;
+          grid-template-rows: auto auto;
+          gap: 0.5rem 1.5rem;
+        }
+        .mth-desc-col {
+          grid-column: 2 / -1;
+          padding-top: 0.75rem;
+        }
+      }
+      @media (max-width: 500px) {
+        .mth-row { grid-template-columns: 1fr; gap: 0.5rem; }
+        .mth-desc-col { grid-column: 1; }
+      }
+
+      /* step number */
+      .mth-num {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: var(--clr-muted);
+        padding-top: 0.15rem;
+      }
+
+      /* topic + subtopic */
+      .mth-label-col { padding-top: 0.05rem; }
+
+      .mth-topic {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 1.35rem;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        color: var(--clr-heading);
+        line-height: 1.25;
+        margin-bottom: 0.3rem;
+      }
+      .mth-subtopic {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.78rem;
+        font-weight: 400;
+        color: var(--clr-muted);
+        line-height: 1.4;
+      }
+
+      /* description + tags */
+      .mth-desc-col {}
+
+      .mth-desc {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.9rem;
+        line-height: 1.75;
+        color: var(--clr-body);
+        margin: 0 0 0.85rem;
+      }
+
+      .mth-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .mth-tag {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: var(--clr-heading);
+        background: #fff;
+        border: 1px solid var(--clr-border);
+        border-radius: 4px;
+        padding: 0.15rem 0.55rem;
+      }
+    `}</style>
+  </Section>
+);
 
 export default Methodology;

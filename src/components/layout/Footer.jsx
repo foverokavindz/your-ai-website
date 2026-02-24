@@ -1,136 +1,83 @@
 import React from 'react';
-import {
-  Github,
-  Linkedin,
-  Mail,
-  ArrowUp,
-  Brain,
-  ExternalLink,
-} from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
 import Container from '../ui/Container';
 
-const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-  const footerSections = [
-    {
-      title: 'Research',
-      links: [
-        { name: 'Project Scope', href: '#project-scope' },
-        { name: 'Literature Survey', href: '#literature-survey' },
-        { name: 'Research Gap', href: '#research-gap' },
-        { name: 'Research Problem', href: '#research-problem' },
-        { name: 'Objectives', href: '#objectives' },
-        { name: 'Methodology', href: '#methodology' },
-      ],
-    },
-    {
-      title: 'Resources',
-      links: [
-        { name: 'Technologies', href: '#technologies' },
-        { name: 'Milestones', href: '#milestones' },
-        { name: 'Downloads', href: '#downloads' },
-        { name: 'Research Papers', href: '#downloads' },
-        { name: 'Presentations', href: '#downloads' },
-      ],
-    },
-    {
-      title: 'Connect',
-      links: [
-        { name: 'About Team', href: '#about' },
-        { name: 'Contact Us', href: '#contact' },
-        { name: 'Collaborate', href: '#contact' },
-        { name: 'Faculty of Technology', href: 'https://tech.sjp.ac.lk/' },
-      ],
-    },
-  ];
+const navLinks = [
+  {
+    title: 'Research',
+    links: [
+      { name: 'Introduction', href: '#introduction' },
+      { name: 'Research Problem', href: '#research-problem' },
+      { name: 'Literature Survey', href: '#literature-survey' },
+      { name: 'Objectives', href: '#objectives' },
+      { name: 'Methodology', href: '#methodology' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { name: 'Technologies', href: '#technologies' },
+      { name: 'Milestones', href: '#milestones' },
+      { name: 'Downloads', href: '#downloads' },
+    ],
+  },
+  {
+    title: 'Connect',
+    links: [
+      { name: 'Team', href: '#about' },
+      { name: 'Contact', href: '#contact' },
+      { name: 'Faculty of Technology', href: 'https://tech.sjp.ac.lk/', ext: true },
+    ],
+  },
+];
 
-  const socialLinks = [
-    {
-      icon: Github,
-      href: 'https://github.com/foverokavindz/your-ai-website',
-      label: 'GitHub',
-    },
-    {
-      icon: Linkedin,
-      href: 'https://www.linkedin.com/school/university-of-sri-jayewardenepura/',
-      label: 'LinkedIn',
-    },
-    {
-      icon: Mail,
-      href: 'mailto:ict20956@fot.sjp.ac.lk ',
-      label: 'Email',
-    },
-  ];
+const socials = [
+  { icon: Github, href: 'https://github.com/foverokavindz/your-ai-website', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/school/university-of-sri-jayewardenepura/', label: 'LinkedIn' },
+  { icon: Mail, href: 'mailto:ict20956@fot.sjp.ac.lk', label: 'Email' },
+];
+
+const Footer = () => {
+  const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer className="bg-slate-900 text-slate-300 relative">
-      {/* Scroll to top button */}
-      <button
-        onClick={scrollToTop}
-        className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-green-600 hover:bg-green-700 text-white rounded-full flex items-center justify-center shadow-lg transition-colors duration-300 touch-manipulation min-h-[48px] min-w-[48px]"
-        aria-label="Scroll to top"
-      >
-        <ArrowUp className="w-5 h-5" />
-      </button>
-
+    <footer className="ft-footer">
       <Container>
-        <div className="pt-16 pb-6 sm:pb-8">
-          {/* Main Footer Content */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 mb-8 sm:mb-12">
-            {/* Brand Section */}
-            <div className="sm:col-span-2 lg:col-span-2 space-y-4 sm:space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
-                  <Brain className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white">
-                    Your AI
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-400">
-                    Research Project
-                  </p>
-                </div>
-              </div>
-              <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-md">
-                Developing a Knowledge Graph-Based RAG System with LLMs for
-                domain-specific information retrieval and intelligent user
-                interfaces.
-              </p>
 
-              <div className="flex items-center gap-3 sm:gap-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-800 hover:bg-green-600 rounded-lg flex items-center justify-center transition-colors duration-300 group touch-manipulation"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-4 h-4 sm:w-5 sm:h-5 group-hover:text-white" />
-                  </a>
-                ))}
-              </div>
+        {/* ── top strip: brand + nav ── */}
+        <div className="ft-top">
+
+          {/* brand */}
+          <div className="ft-brand">
+            <p className="ft-brand-name">YourAI</p>
+            <p className="ft-brand-sub">
+              Knowledge Graph-Based RAG System for domain-specific
+              institutional document retrieval.
+            </p>
+            <div className="ft-socials">
+              {socials.map((s, i) => (
+                <a key={i} href={s.href} aria-label={s.label} target="_blank" rel="noreferrer" className="ft-social-btn">
+                  <s.icon size={14} strokeWidth={2} />
+                </a>
+              ))}
             </div>
+          </div>
 
-            {/* Navigation Sections */}
-            {footerSections.map((section, index) => (
-              <div key={index} className="space-y-3 sm:space-y-4">
-                <h4 className="text-base sm:text-lg font-semibold text-white">
-                  {section.title}
-                </h4>
-                <ul className="space-y-2 sm:space-y-3">
-                  {section.links.map((link, linkIndex) => (
-                    <li key={linkIndex}>
+          {/* nav columns */}
+          <div className="ft-nav">
+            {navLinks.map((col, ci) => (
+              <div key={ci} className="ft-nav-col">
+                <p className="ft-nav-title">{col.title}</p>
+                <ul className="ft-nav-list">
+                  {col.links.map((l, li) => (
+                    <li key={li}>
                       <a
-                        href={link.href}
-                        className="text-sm sm:text-base text-slate-400 hover:text-green-400 transition-colors duration-200 flex items-center gap-1 group touch-manipulation py-1"
+                        href={l.href}
+                        className="ft-nav-link"
+                        target={l.ext ? '_blank' : undefined}
+                        rel={l.ext ? 'noreferrer' : undefined}
                       >
-                        {link.name}
-                        {link.href.startsWith('#') ? null : (
-                          <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                        )}
+                        {l.name}
                       </a>
                     </li>
                   ))}
@@ -139,41 +86,153 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* Divider */}
-          <div className="border-t border-slate-800 pt-6 sm:pt-8">
-            {/* Bottom Footer */}
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6">
-              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-400 text-center sm:text-left">
-                <p>
-                  &copy; {new Date().getFullYear()} University of Sri
-                  Jayewardenepura. All rights reserved.
-                </p>
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <a
-                    href="#"
-                    className="hover:text-green-400 transition-colors touch-manipulation py-1"
-                  >
-                    Privacy Policy
-                  </a>
-                  <span className="text-slate-600 hidden sm:inline">•</span>
-                  <a
-                    href="#"
-                    className="hover:text-green-400 transition-colors touch-manipulation py-1"
-                  >
-                    Terms of Use
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center gap-2 text-xs sm:text-sm text-slate-500 text-center">
-                <span>Final Year Research Project</span>
-                <span className="text-green-400 hidden sm:inline">•</span>
-                <span>Faculty of Technology</span>
-              </div>
-            </div>
-          </div>
         </div>
+
+        {/* ── bottom bar ── */}
+        <div className="ft-bottom">
+          <p className="ft-copy">
+            &copy; {new Date().getFullYear()} University of Sri Jayewardenepura &mdash; Final Year Research Project, Faculty of Technology
+          </p>
+          <button onClick={scrollTop} className="ft-top-btn" aria-label="Scroll to top">
+            <ArrowUp size={14} strokeWidth={2.5} />
+          </button>
+        </div>
+
       </Container>
+
+      <style>{`
+        .ft-footer {
+          background: var(--clr-heading);
+          color: rgba(255,255,255,0.55);
+          border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* top strip */
+        .ft-top {
+          display: grid;
+          grid-template-columns: 1fr 1.8fr;
+          gap: 4rem;
+          padding: 4rem 0 3rem;
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        @media (max-width: 760px) {
+          .ft-top { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
+
+        /* brand */
+        .ft-brand-name {
+          font-family: 'Inter', system-ui, sans-serif;
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #fff;
+          letter-spacing: -0.02em;
+          margin-bottom: 0.75rem;
+        }
+        .ft-brand-sub {
+          font-family: 'Inter', system-ui, sans-serif;
+          font-size: 0.82rem;
+          line-height: 1.7;
+          color: rgba(255,255,255,0.45);
+          max-width: 280px;
+          margin-bottom: 1.5rem;
+        }
+
+        .ft-socials {
+          display: flex;
+          gap: 0.45rem;
+        }
+        .ft-social-btn {
+          width: 32px;
+          height: 32px;
+          border-radius: 7px;
+          border: 1px solid rgba(255,255,255,0.12);
+          background: rgba(255,255,255,0.05);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgba(255,255,255,0.55);
+          transition: background 0.15s, color 0.15s, border-color 0.15s;
+          text-decoration: none;
+        }
+        .ft-social-btn:hover {
+          background: rgba(255,255,255,0.15);
+          color: #fff;
+          border-color: rgba(255,255,255,0.25);
+        }
+
+        /* nav columns */
+        .ft-nav {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+        }
+        @media (max-width: 500px) {
+          .ft-nav { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .ft-nav-title {
+          font-family: 'Inter', system-ui, sans-serif;
+          font-size: 0.68rem;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.35);
+          margin-bottom: 1rem;
+        }
+
+        .ft-nav-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.55rem;
+        }
+
+        .ft-nav-link {
+          font-family: 'Inter', system-ui, sans-serif;
+          font-size: 0.82rem;
+          color: rgba(255,255,255,0.5);
+          text-decoration: none;
+          transition: color 0.15s;
+        }
+        .ft-nav-link:hover { color: #fff; }
+
+        /* bottom bar */
+        .ft-bottom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1.25rem 0;
+          gap: 1rem;
+        }
+        .ft-copy {
+          font-family: 'Inter', system-ui, sans-serif;
+          font-size: 0.73rem;
+          color: rgba(255,255,255,0.3);
+          line-height: 1.5;
+        }
+
+        /* scroll-to-top */
+        .ft-top-btn {
+          width: 32px;
+          height: 32px;
+          border-radius: 7px;
+          border: 1px solid rgba(255,255,255,0.12);
+          background: rgba(255,255,255,0.05);
+          color: rgba(255,255,255,0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          flex-shrink: 0;
+          transition: background 0.15s, color 0.15s;
+        }
+        .ft-top-btn:hover {
+          background: rgba(255,255,255,0.15);
+          color: #fff;
+        }
+      `}</style>
     </footer>
   );
 };

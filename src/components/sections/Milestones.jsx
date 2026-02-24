@@ -1,330 +1,278 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Calendar, CheckCircle, ArrowRight } from 'lucide-react';
 import Section from '../ui/Section';
 import Container from '../ui/Container';
-import Card from '../ui/Card';
 
-const Milestones = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.05 },
+  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1], delay },
+});
 
-  const milestones = [
-    {
-      date: 'July 2024',
-      title: 'Topic Selection',
-      description: 'Initial literature review and topic finalization',
-      status: 'completed',
-      quarter: 'Q3 2024',
-    },
-    {
-      date: 'August 2024',
-      title: 'Domain Analysis',
-      description: 'Comprehensive domain analysis and requirements gathering',
-      status: 'completed',
-      quarter: 'Q3 2024',
-    },
-    {
-      date: 'August 2024',
-      title: 'Learn AI and LLMs',
-      description:
-        'Introduction to AI and LLMs, foundational knowledge acquisition',
-      status: 'completed',
-      quarter: 'Q3 2024',
-    },
-    {
-      date: 'September 2024',
-      title: 'Requirements Gathering & Literature Review',
-      description: 'Detailed requirements gathering and literature review',
-      status: 'completed',
-      quarter: 'Q3 2024',
-    },
-    {
-      date: 'October 2024',
-      title: 'System Design',
-      description: 'System architecture design and technology stack selection',
-      status: 'completed',
-      quarter: 'Q4 2024',
-    },
-    {
-      date: 'November 2024',
-      title: 'Data Collection',
-      description: 'Data collection and preprocessing for model training',
-      status: 'completed',
-      quarter: 'Q4 2024',
-    },
-    {
-      date: 'December 2024',
-      title: 'Literature Review',
-      description:
-        'Comprehensive literature review and analysis of existing solutions',
-      status: 'completed',
-      quarter: 'Q4 2024',
-    },
-    {
-      date: 'January 2025',
-      title: 'Fronetend Development',
-      description: 'Initial frontend development and UI design',
-      status: 'completed',
-      quarter: 'Q1 2025',
-    },
-    {
-      date: 'February 2025',
-      title: 'Backend Development',
-      description: 'Backend architecture setup and API development',
-      status: 'completed',
-      quarter: 'Q1 2025',
-    },
-    {
-      date: 'March 2025',
-      title: 'Complete AI Integration',
-      description: 'Integration of AI models with frontend and backend',
-      status: 'completed',
-      quarter: 'Q1 2025',
-    },
-    {
-      date: 'April 2025',
-      title: 'Second Progress Review',
-      description: 'Mid-project review and adjustments based on feedback',
-      status: 'completed',
-      quarter: 'Q2 2025',
-    },
-    {
-      date: 'May 2025',
-      title: 'Final Testing',
-      description: 'Comprehensive testing and bug fixing before deployment',
-      status: 'completed',
-      quarter: 'Q2 2025',
-    },
-    {
-      date: 'June 2025',
-      title: 'Performance Optimization',
-      description: 'Optimization of system performance and user experience',
-      status: 'completed',
-      quarter: 'Q2 2025',
-    },
-  ];
+const quarters = [
+  {
+    quarter: 'Q3 2024',
+    items: [
+      { month: 'Jul 2024', title: 'Topic Selection', desc: 'Initial literature review and topic finalization' },
+      { month: 'Aug 2024', title: 'Domain Analysis', desc: 'Comprehensive domain analysis and requirements gathering' },
+      { month: 'Aug 2024', title: 'Learn AI & LLMs', desc: 'Foundational knowledge acquisition in AI and large language models' },
+      { month: 'Sep 2024', title: 'Requirements & Literature Review', desc: 'Detailed requirements gathering and in-depth literature review' },
+    ],
+  },
+  {
+    quarter: 'Q4 2024',
+    items: [
+      { month: 'Oct 2024', title: 'System Design', desc: 'System architecture design and technology stack selection' },
+      { month: 'Nov 2024', title: 'Data Collection', desc: 'Data collection and preprocessing for model training' },
+      { month: 'Dec 2024', title: 'Literature Review', desc: 'Comprehensive analysis and synthesis of existing solutions' },
+    ],
+  },
+  {
+    quarter: 'Q1 2025',
+    items: [
+      { month: 'Jan 2025', title: 'Frontend Development', desc: 'Initial frontend development and UI/UX design implementation' },
+      { month: 'Feb 2025', title: 'Backend Development', desc: 'Backend architecture setup and REST API development' },
+      { month: 'Mar 2025', title: 'AI Integration', desc: 'Full integration of AI models with frontend and backend services' },
+    ],
+  },
+  {
+    quarter: 'Q2 2025',
+    items: [
+      { month: 'Apr 2025', title: 'Second Progress Review', desc: 'Mid-project review and scope adjustments based on feedback' },
+      { month: 'May 2025', title: 'Final Testing', desc: 'Comprehensive testing and bug fixing before deployment' },
+      { month: 'Jun 2025', title: 'Performance Optimization', desc: 'Optimisation of system performance and user experience' },
+    ],
+  },
+];
 
-  const getStatusColor = (status) => {
-    return 'bg-green-100 text-green-700 border-green-200';
-  };
+const Milestones = () => (
+  <Section id="milestones" className="ms-section">
+    <Container>
 
-  const getNodeColor = (status) => {
-    return 'border-green-500 bg-green-500';
-  };
+      {/* meta */}
+      <motion.div className="ms-meta" {...fadeUp(0)}>
+        <span className="ms-eyebrow">Milestones</span>
+        <span className="ms-meta-num">08</span>
+      </motion.div>
 
-  return (
-    <Section id="milestones" className="py-16 sm:py-20 lg:py-24 bg-slate-50">
-      <Container>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="space-y-12 sm:space-y-16"
-        >
-          {/* Header Section */}
-          <div className="text-center space-y-4 sm:space-y-6">
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full">
-              <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4" />
-              Achievements
-            </div>
-            <div className="space-y-3 sm:space-y-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight px-4 sm:px-0">
-                Milestones Achieved
-              </h2>
-              <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-                Key accomplishments and deliverables completed throughout our
-                research journey
-              </p>
-            </div>
-          </div>
+      {/* headline */}
+      <motion.h2 className="ms-headline" {...fadeUp(0.05)}>
+        Research Timeline
+      </motion.h2>
 
-          {/* Timeline */}
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-0">
-            {/* Desktop Timeline - Hidden on mobile */}
-            <div className="hidden lg:block">
-              {/* Vertical Line */}
-              <div className="absolute left-1/2 transform -translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-200 via-green-300 to-green-400"></div>
+      {/* progress indicator */}
+      <motion.div className="ms-progress-wrap" {...fadeUp(0.1)}>
+        <div className="ms-progress-bar">
+          <div className="ms-progress-fill" />
+        </div>
+        <p className="ms-progress-label">13 milestones completed &mdash; on track</p>
+      </motion.div>
 
-              <div className="space-y-16">
-                {milestones.map((milestone, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="relative grid grid-cols-12 items-center gap-8"
-                  >
-                    {/* Left Content (for even indices) */}
-                    <div
-                      className={`col-span-5 ${
-                        index % 2 === 0 ? 'order-1' : 'order-1 invisible'
-                      }`}
-                    >
-                      {index % 2 === 0 && (
-                        <Card className="p-6 bg-white border border-slate-200 hover:border-green-200 hover:shadow-md transition-all duration-300 group">
-                          <div className="space-y-4">
-                            <div className="flex items-center justify-end">
-                              <span className="inline-flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium border bg-green-100 text-green-700 border-green-200">
-                                {milestone.date}
-                              </span>
-                            </div>
-                            <h3 className="text-xl font-bold text-slate-900 group-hover:text-green-600 transition-colors text-right">
-                              {milestone.title}
-                            </h3>
-                            <p className="text-slate-600 leading-relaxed text-right">
-                              {milestone.description}
-                            </p>
-                            <div className="flex justify-end">
-                              <span className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full border border-green-200">
-                                ✓ Completed
-                              </span>
-                            </div>
-                          </div>
-                        </Card>
-                      )}
-                    </div>
+      {/* quarter blocks */}
+      <div className="ms-quarters">
+        {quarters.map((q, qi) => (
+          <motion.div key={qi} className="ms-quarter" {...fadeUp(0.12 + qi * 0.05)}>
 
-                    {/* Center Timeline Node */}
-                    <div className="col-span-2 order-2 flex justify-center">
-                      <div className="w-16 h-16 border-green-500 bg-green-500 rounded-full flex items-center justify-center shadow-lg relative z-10 transition-all duration-300">
-                        <CheckCircle className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-
-                    {/* Right Content (for odd indices) */}
-                    <div
-                      className={`col-span-5 ${
-                        index % 2 === 1 ? 'order-3' : 'order-3 invisible'
-                      }`}
-                    >
-                      {index % 2 === 1 && (
-                        <Card className="p-6 bg-white border border-slate-200 hover:border-green-200 hover:shadow-md transition-all duration-300 group">
-                          <div className="space-y-4">
-                            <div className="flex items-center justify-start">
-                              <span className="inline-flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium border bg-green-100 text-green-700 border-green-200">
-                                {milestone.date}
-                              </span>
-                            </div>
-                            <h3 className="text-xl font-bold text-slate-900 group-hover:text-green-600 transition-colors text-left">
-                              {milestone.title}
-                            </h3>
-                            <p className="text-slate-600 leading-relaxed text-left">
-                              {milestone.description}
-                            </p>
-                            <div className="flex justify-start">
-                              <span className="text-xs text-green-600 bg-green-50 px-3 py-1 rounded-full border border-green-200">
-                                ✓ Completed
-                              </span>
-                            </div>
-                          </div>
-                        </Card>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+            {/* quarter label */}
+            <div className="ms-quarter-label">
+              <span className="ms-q-tag">{q.quarter}</span>
             </div>
 
-            {/* Mobile Timeline - Single column layout */}
-            <div className="lg:hidden">
-              {/* Vertical Line */}
-              <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-200 via-green-300 to-green-400"></div>
-
-              <div className="space-y-6 sm:space-y-8">
-                {milestones.map((milestone, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="relative flex items-start gap-4 sm:gap-6"
-                  >
-                    {/* Timeline Node */}
-                    <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg relative z-10">
-                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                    </div>
-
-                    {/* Content Card */}
-                    <div className="flex-1 min-w-0">
-                      <Card className="p-4 sm:p-6 bg-white border border-slate-200 hover:border-green-200 hover:shadow-md transition-all duration-300 group">
-                        <div className="space-y-3 sm:space-y-4">
-                          {/* Date Badge */}
-                          <div className="flex items-center justify-start">
-                            <span className="inline-flex items-center gap-1 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium border bg-green-100 text-green-700 border-green-200">
-                              {milestone.date}
-                            </span>
-                          </div>
-
-                          {/* Title */}
-                          <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-green-600 transition-colors">
-                            {milestone.title}
-                          </h3>
-
-                          {/* Description */}
-                          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                            {milestone.description}
-                          </p>
-
-                          {/* Status Badge */}
-                          <div className="flex justify-start">
-                            <span className="text-xs text-green-600 bg-green-50 px-2 sm:px-3 py-1 rounded-full border border-green-200">
-                              ✓ Completed
-                            </span>
-                          </div>
-                        </div>
-                      </Card>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+            {/* milestone rows */}
+            <div className="ms-rows">
+              {q.items.map((item, ri) => (
+                <div key={ri} className="ms-row">
+                  <span className="ms-month">{item.month}</span>
+                  <p className="ms-title">{item.title}</p>
+                  <p className="ms-desc">{item.desc}</p>
+                  {/* <span className="ms-done">✓</span> */}
+                </div>
+              ))}
             </div>
-          </div>
 
-          {/* Bottom CTA */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="bg-white rounded-2xl border border-slate-200 p-8 md:p-12 text-center relative overflow-hidden"
-          >
+          </motion.div>
+        ))}
+      </div>
 
-            <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full -translate-y-16 translate-x-16"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-green-100 rounded-full translate-y-12 -translate-x-12"></div>
+    </Container>
 
-            <div className="relative z-10 space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900">
-                  Research Progress Summary
-                </h3>
-                <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                  We've successfully completed{' '}
-                  <span className="text-green-600 font-semibold">
-                    {milestones.length} major milestones
-                  </span>{' '}
-                  in our AI-driven UI personalization research project.
-                </p>
-              </div>
+    <style>{`
+      .ms-section {
+        background: #F7F5F2;
+        padding: 6rem 0 5rem;
+        border-top: 1px solid var(--clr-border);
+      }
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors">
-                  View detailed progress
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <button className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-8 py-3 rounded-lg font-medium hover:bg-slate-200 transition-colors">
-                  Download report
-                </button>
-              </div>
-            </div>
-          </motion.div> */}
-        </motion.div>
-      </Container>
-    </Section>
-  );
-};
+      /* meta */
+      .ms-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+      }
+      .ms-eyebrow {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--clr-muted);
+      }
+      .ms-meta-num {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.75rem;
+        color: var(--clr-border);
+        letter-spacing: 0.1em;
+      }
+
+      /* headline */
+      .ms-headline {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 600;
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+        color: var(--clr-heading);
+        max-width: 500px;
+        margin-bottom: 2.5rem;
+      }
+
+      /* progress bar */
+      .ms-progress-wrap {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+      }
+      .ms-progress-bar {
+        flex: 1;
+        height: 3px;
+        background: var(--clr-border);
+        border-radius: 2px;
+        overflow: hidden;
+        max-width: 320px;
+      }
+      .ms-progress-fill {
+        height: 100%;
+        width: 100%;
+        background: var(--clr-heading);
+        border-radius: 2px;
+      }
+      .ms-progress-label {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.78rem;
+        color: var(--clr-muted);
+        white-space: nowrap;
+      }
+
+      /* ── quarter sections ── */
+      .ms-quarters {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .ms-quarter {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 0;
+        border-top: 1px solid var(--clr-border);
+      }
+      .ms-quarter:last-child { border-bottom: 1px solid var(--clr-border); }
+
+      @media (max-width: 600px) {
+        .ms-quarter { grid-template-columns: 1fr; }
+      }
+
+      /* quarter label column */
+      .ms-quarter-label {
+        padding: 1.5rem 1rem 1.5rem 0;
+        display: flex;
+        align-items: flex-start;
+        border-right: 1px solid var(--clr-border);
+      }
+      @media (max-width: 600px) {
+        .ms-quarter-label { border-right: none; border-bottom: 1px solid var(--clr-border); padding: 1rem 0 0.75rem; }
+      }
+
+      .ms-q-tag {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--clr-muted);
+      }
+
+      /* milestone rows on the right */
+      .ms-rows {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .ms-row {
+        display: grid;
+        grid-template-columns: 90px 1fr 1fr auto;
+        gap: 0 1.5rem;
+        align-items: center;
+        padding: 1rem 0 1rem 1.5rem;
+        border-bottom: 1px solid var(--clr-border);
+        transition: background 0.15s;
+      }
+      .ms-row:last-child { border-bottom: none; }
+      .ms-row:hover { background: rgba(0,0,0,0.02); }
+
+      @media (max-width: 820px) {
+        .ms-row {
+          grid-template-columns: 80px 1fr auto;
+          grid-template-rows: auto auto;
+        }
+        .ms-desc { grid-column: 2; grid-row: 2; }
+      }
+      @media (max-width: 500px) {
+        .ms-row { grid-template-columns: 1fr auto; padding-left: 0; }
+        .ms-month { grid-column: 1; font-size: 0.68rem; }
+        .ms-title { grid-column: 1; grid-row: 2; }
+        .ms-desc  { grid-column: 1; grid-row: 3; }
+        .ms-done  { grid-column: 2; grid-row: 1; }
+      }
+
+      .ms-month {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.73rem;
+        font-weight: 500;
+        color: var(--clr-muted);
+        letter-spacing: 0.02em;
+      }
+      .ms-title {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--clr-heading);
+        letter-spacing: -0.01em;
+        margin: 0;
+      }
+      .ms-desc {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.8rem;
+        color: var(--clr-muted);
+        line-height: 1.5;
+        margin: 0;
+      }
+      .ms-done {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--clr-heading);
+        background: var(--clr-off-white);
+        border: 1px solid var(--clr-border);
+        border-radius: 4px;
+        padding: 0.15rem 0.45rem;
+        white-space: nowrap;
+      }
+    `}</style>
+  </Section>
+);
 
 export default Milestones;

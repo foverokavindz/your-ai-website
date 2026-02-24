@@ -1,145 +1,219 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import {
-  AlertTriangle,
-  CheckCircle,
-  Target,
-  ArrowRight,
-  X,
-} from 'lucide-react';
 import Section from '../ui/Section';
 import Container from '../ui/Container';
-import Card from '../ui/Card';
 
-const ResearchProblem = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.1 },
+  transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1], delay },
+});
 
-  const problems = [
-    'Manual document retrieval systems are time-consuming and inefficient.',
-    'Valuable institutional knowledge is lost when experienced personnel leave.',
-    'Traditional storage lacks semantic search and intelligent access.',
-    'Information fragmentation leads to poor decision-making.',
-  ];
+const ResearchProblem = () => (
+  <Section id="research-problem" className="rp-section">
+    <Container>
 
-  const solutions = [
-    'AI-powered knowledge retrieval using Knowledge Graphs + LLMs.',
-    'Automated contextualization of historical records.',
-    'Glossary-aided disambiguation of domain-specific terminology.',
-    'Preserving institutional memory for strategic decision-making.',
-  ];
+      {/* ── Top meta row ── */}
+      <motion.div className="rp-meta" {...fadeUp(0)}>
+        <span className="rp-eyebrow">Research Problem</span>
+        <span className="rp-meta-num">02</span>
+      </motion.div>
 
-  return (
-    <Section id="research-problem" className="py-16 sm:py-20 lg:py-24 bg-white">
-      <Container>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="space-y-12 sm:space-y-16"
-        >
-          {/* Header Section */}
-          <div className="text-center space-y-4 sm:space-y-6">
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full">
-              <Target className="w-3 h-3 sm:w-4 sm:h-4" />
-              Problem & Solution
-            </div>
-            <div className="space-y-3 sm:space-y-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight px-4 sm:px-0">
-                Research Problem
-              </h2>
-              <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-                Identifying challenges in managing historical data and proposing
-                intelligent retrieval solutions.
-              </p>
-            </div>
-          </div>
+      {/* ── Large headline ── */}
+      <motion.h2 className="rp-headline" {...fadeUp(0.05)}>
+        Practical Challenges in<br />Institutional Knowledge Retrieval
+      </motion.h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 px-4 sm:px-0">
-            {/* Problems Section */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-4 sm:space-y-6"
-            >
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-50 border border-red-200 rounded-xl flex items-center justify-center">
-                  <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6 text-red-600" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
-                  Current Problems
-                </h3>
-              </div>
-
-              <Card className="p-4 sm:p-6 lg:p-8 bg-red-50/50 border border-red-200 hover:border-red-300 hover:shadow-lg transition-all duration-300">
-                <div className="space-y-4 sm:space-y-6">
-                  {problems.map((problem, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={inView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                      className="flex items-start gap-2 sm:gap-3 group"
-                    >
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-red-100 border border-red-200 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <X className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-red-600" />
-                      </div>
-                      <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                        {problem}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              </Card>
-            </motion.div>
-
-            {/* Solutions Section */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="space-y-4 sm:space-y-6"
-            >
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-50 border border-green-200 rounded-xl flex items-center justify-center">
-                  <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
-                  Our Solutions
-                </h3>
-              </div>
-
-              <Card className="p-4 sm:p-6 lg:p-8 bg-green-50/50 border border-green-200 hover:border-green-300 hover:shadow-lg transition-all duration-300">
-                <div className="space-y-4 sm:space-y-6">
-                  {solutions.map((solution, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={inView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                      className="flex items-start gap-2 sm:gap-3 group"
-                    >
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-green-100 border border-green-200 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <CheckCircle className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-green-600" />
-                      </div>
-                      <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                        {solution}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              </Card>
-            </motion.div>
-          </div>
+      {/* ── Two challenge panels side by side ── */}
+      <div className="rp-panels">
+        <motion.div className="rp-panel" {...fadeUp(0.1)}>
+          <p className="rp-panel-title">The Challenge</p>
+          <p className="rp-panel-sub">Embedded domain knowledge</p>
+          <ul className="rp-list">
+            {[
+              'Critical organisational knowledge is embedded in long, domain-specific documents (e.g., regulations, clinical protocols, legal records).',
+              'Documents contain ambiguous terminology, abbreviations, and evolving definitions.',
+            ].map((item, i) => (
+              <li key={i} className="rp-list-item"><span className="rp-bullet" />{item}</li>
+            ))}
+          </ul>
         </motion.div>
-      </Container>
-    </Section>
-  );
-};
+
+        <motion.div className="rp-panel" {...fadeUp(0.15)}>
+          <p className="rp-panel-title">Limitations</p>
+          <p className="rp-panel-sub">Traditional search &amp; standard RAG</p>
+          <ul className="rp-list">
+            {[
+              'Retrieve large but semantically misaligned contexts.',
+              'Fail to disambiguate specialised terms.',
+              'Produce irrelevant or unfaithful answers, or avoid answering altogether.',
+            ].map((item, i) => (
+              <li key={i} className="rp-list-item"><span className="rp-bullet" />{item}</li>
+            ))}
+          </ul>
+        </motion.div>
+      </div>
+
+      {/* ── Core research question — full-width typographic statement ── */}
+      <motion.div className="rp-question-wrap" {...fadeUp(0.2)}>
+        <span className="rp-question-label">Core Research Problem</span>
+        <p className="rp-question">
+          "How can a Knowledge Graph-based Retrieval Augmented Generation
+          (KG&#8209;RAG) system accurately interpret domain&#8209;specific
+          terminology and deliver reliable, context&#8209;aware answers from
+          institutional documents?"
+        </p>
+      </motion.div>
+
+    </Container>
+
+    <style>{`
+      .rp-section {
+        background: #fff;
+        padding: 6rem 0 5rem;
+        border-top: 1px solid var(--clr-border);
+      }
+
+      /* ── meta row ── */
+      .rp-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+      }
+
+      .rp-eyebrow {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--clr-muted);
+      }
+
+      .rp-meta-num {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--clr-border);
+        letter-spacing: 0.1em;
+      }
+
+      /* ── headline ── */
+      .rp-headline {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: clamp(2.2rem, 5.5vw, 4rem);
+        font-weight: 600;
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+        color: var(--clr-heading);
+        margin-bottom: 3.5rem;
+        max-width: 760px;
+      }
+
+      /* ── two panels ── */
+      .rp-panels {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        border: 1px solid var(--clr-border);
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 2.5rem;
+      }
+
+      @media (max-width: 680px) {
+        .rp-panels { grid-template-columns: 1fr; }
+      }
+
+      .rp-panel {
+        padding: 2rem 2.25rem;
+        background: var(--clr-off-white);
+      }
+
+      .rp-panel:first-child {
+        border-right: 1px solid var(--clr-border);
+      }
+
+      @media (max-width: 680px) {
+        .rp-panel:first-child { border-right: none; border-bottom: 1px solid var(--clr-border); }
+      }
+
+      .rp-panel-title {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--clr-heading);
+        margin-bottom: 0.2rem;
+      }
+
+      .rp-panel-sub {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.75rem;
+        color: var(--clr-muted);
+        margin-bottom: 1.25rem;
+      }
+
+      /* ── bullet list ── */
+      .rp-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+
+      .rp-list-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.88rem;
+        color: var(--clr-body);
+        line-height: 1.65;
+      }
+
+      .rp-bullet {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--clr-heading);
+        flex-shrink: 0;
+        margin-top: 0.52rem;
+      }
+
+      /* ── full-width question statement ── */
+      .rp-question-wrap {
+        border-top: 1px solid var(--clr-border);
+        padding-top: 2.5rem;
+      }
+
+      .rp-question-label {
+        display: block;
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--clr-muted);
+        margin-bottom: 1.25rem;
+      }
+
+      .rp-question {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+        font-weight: 500;
+        font-style: italic;
+        line-height: 1.6;
+        letter-spacing: -0.02em;
+        color: var(--clr-heading);
+        max-width: 860px;
+        margin: 0;
+      }
+    `}</style>
+  </Section>
+);
 
 export default ResearchProblem;
