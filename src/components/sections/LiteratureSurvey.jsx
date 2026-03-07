@@ -288,6 +288,15 @@ const LiteratureSurvey = () => (
         color: rgba(255,255,255,0.35);
         margin-top: 0.35rem;
       }
+
+      /* ── mobile responsive ── */
+      @media (max-width: 640px) {
+        .ls-section { padding: 3.5rem 0 3rem; }
+        .ls-card { padding: 1.5rem 1.25rem; }
+        .ls-stat-num { font-size: 1.75rem; }
+        .ls-stat-item { padding: 1.25rem 1.5rem; }
+        .ls-headline { margin-bottom: 2rem; }
+      }
     `}</style>
   </Section>
 );

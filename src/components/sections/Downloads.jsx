@@ -299,6 +299,12 @@ const Downloads = () => (
       @media (max-width: 540px) {
         .dl-row { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
       }
+
+      /* ── mobile responsive ── */
+      @media (max-width: 640px) {
+        .dl-section { padding: 3.5rem 0 3rem; }
+        .dl-row:hover:not(.dl-row--disabled) { margin: 0; padding-left: 0; padding-right: 0; }
+      }
     `}</style>
   </Section>
 );

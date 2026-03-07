@@ -231,6 +231,17 @@ const Methodology = () => (
         border-radius: 4px;
         padding: 0.15rem 0.55rem;
       }
+
+      /* ── mobile responsive ── */
+      @media (max-width: 640px) {
+        .mth-section { padding: 3.5rem 0 3rem; }
+        .mth-headline { margin-bottom: 2.5rem; }
+        .mth-topic { font-size: 1.1rem; }
+        .mth-row { padding: 1.5rem 0; }
+        .mth-desc-col { overflow: hidden; }
+        .mth-tags { gap: 0.3rem; }
+        .mth-tag { font-size: 0.65rem; padding: 0.12rem 0.4rem; }
+      }
     `}</style>
   </Section>
 );

@@ -194,6 +194,9 @@ const Objectives = () => (
         padding: 1.75rem 0;
         align-items: start;
       }
+      @media (max-width: 600px) {
+        .obj-row-description { grid-template-columns: 1fr; }
+      }
 
       /* rows on the right */
       .obj-rows {
@@ -284,6 +287,15 @@ const Objectives = () => (
         background: var(--clr-heading);
         flex-shrink: 0;
         margin-top: 0.45rem;
+      }
+
+      /* ── mobile responsive ── */
+      @media (max-width: 640px) {
+        .obj-section { padding: 3.5rem 0 3rem; }
+        .obj-headline { margin-bottom: 2.5rem; }
+        .obj-meta { margin-bottom: 2.5rem; }
+        .obj-layout { margin-bottom: 2.5rem; }
+        .obj-topic { font-size: 1.1rem; }
       }
     `}</style>
   </Section>

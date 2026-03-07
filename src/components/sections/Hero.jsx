@@ -17,18 +17,18 @@ const Hero = () => {
 
 			<Container className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center text-center">
 				{/* Top Badge */}
-				<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 text-base font-medium mb-8" style={{ color: '#888888' }}>
-					<img src={UniLogo} alt="" className="w-10 h-10" />
+				<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 text-sm sm:text-base font-medium mb-6 sm:mb-8" style={{ color: '#888888' }}>
+					<img src={UniLogo} alt="" className="w-8 h-8 sm:w-10 sm:h-10" />
 					<span>University of Sri Jayewardenepura, Faculty of Technology</span>
 				</motion.div>
 
 				{/* Main Heading */}
-				<motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight mb-6" style={{ color: '#1A1A1A' }}>
+				<motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-4 sm:mb-6" style={{ color: '#1A1A1A' }}>
 					Knowledge Graph based Retrieval Augmented Generation (RAG) System for Domain Specific Information Extraction with Glossary-Aided Responses
 				</motion.h1>
 
 				{/* Description */}
-				<motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-lg sm:text-xl leading-relaxed max-w-2xl mb-10 font-medium" style={{ color: '#444444' }}>
+				<motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mb-8 sm:mb-10 font-medium" style={{ color: '#444444' }}>
 					Powered by RAG systems, LLMs, and knowledge graphs for intelligent document analysis. We extract knowledge from documents, identify Entities & Relationships, and create intelligent responses.
 				</motion.p>
 

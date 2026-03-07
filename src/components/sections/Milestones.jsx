@@ -271,6 +271,14 @@ const Milestones = () => (
         padding: 0.15rem 0.45rem;
         white-space: nowrap;
       }
+
+      /* ── mobile responsive ── */
+      @media (max-width: 640px) {
+        .ms-section { padding: 3.5rem 0 3rem; }
+        .ms-headline { margin-bottom: 2rem; }
+        .ms-progress-wrap { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        .ms-progress-bar { max-width: 100%; width: 100%; }
+      }
     `}</style>
   </Section>
 );

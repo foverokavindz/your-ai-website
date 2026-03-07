@@ -4,109 +4,109 @@ import Section from '../ui/Section';
 import Container from '../ui/Container';
 
 const fadeUp = (delay = 0) => ({
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.08 },
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.08 },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
 });
 
 const SystemArchitecture = () => {
-    const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-    return (
-        <Section id="system-architecture" className="arch-section">
-            <Container>
+  return (
+    <Section id="system-architecture" className="arch-section">
+      <Container>
 
-                {/* ── meta row ── */}
-                <motion.div className="arch-meta" {...fadeUp(0)}>
-                    <span className="arch-eyebrow">Architecture</span>
-                    <span className="arch-meta-num">06·A</span>
-                </motion.div>
+        {/* ── meta row ── */}
+        <motion.div className="arch-meta" {...fadeUp(0)}>
+          <span className="arch-eyebrow">Architecture</span>
+          <span className="arch-meta-num">06·A</span>
+        </motion.div>
 
-                {/* ── headline ── */}
-                <motion.h2 className="arch-headline" {...fadeUp(0.05)}>
-                    System Architecture Overview
-                </motion.h2>
+        {/* ── headline ── */}
+        <motion.h2 className="arch-headline" {...fadeUp(0.05)}>
+          System Architecture Overview
+        </motion.h2>
 
-                {/* ── subtitle ── */}
-                <motion.p className="arch-subtitle" {...fadeUp(0.1)}>
-                    An end-to-end pipeline — from board document ingestion and knowledge graph
-                    construction through graph-based retrieval to LLM-powered answer generation.
-                </motion.p>
+        {/* ── subtitle ── */}
+        <motion.p className="arch-subtitle" {...fadeUp(0.1)}>
+          An end-to-end pipeline — from board document ingestion and knowledge graph
+          construction through graph-based retrieval to LLM-powered answer generation.
+        </motion.p>
 
-                {/* ── diagram container ── */}
-                <motion.div className="arch-diagram-wrap" {...fadeUp(0.15)}>
-                    <div className="arch-diagram-inner">
-                        <img
-                            src="/system-architecture.png"
-                            alt="System Architecture Diagram showing the full pipeline: Board Documents → Entity Extraction → Knowledge Graph → Graph Database → Context Retrieval → LLM → Answer Generation via Web Application"
-                            className="arch-diagram-img"
-                            onClick={() => setIsExpanded(true)}
-                        />
-                        <div className="arch-diagram-hint">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <polyline points="15 3 21 3 21 9" />
-                                <polyline points="9 21 3 21 3 15" />
-                                <line x1="21" y1="3" x2="14" y2="10" />
-                                <line x1="3" y1="21" x2="10" y2="14" />
-                            </svg>
-                            <span>Click to expand</span>
-                        </div>
-                    </div>
-                </motion.div>
+        {/* ── diagram container ── */}
+        <motion.div className="arch-diagram-wrap" {...fadeUp(0.15)}>
+          <div className="arch-diagram-inner">
+            <img
+              src="/system-architecture.png"
+              alt="System Architecture Diagram showing the full pipeline: Board Documents → Entity Extraction → Knowledge Graph → Graph Database → Context Retrieval → LLM → Answer Generation via Web Application"
+              className="arch-diagram-img"
+              onClick={() => setIsExpanded(true)}
+            />
+            <div className="arch-diagram-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="15 3 21 3 21 9" />
+                <polyline points="9 21 3 21 3 15" />
+                <line x1="21" y1="3" x2="14" y2="10" />
+                <line x1="3" y1="21" x2="10" y2="14" />
+              </svg>
+              <span>Click to expand</span>
+            </div>
+          </div>
+        </motion.div>
 
-                {/* ── flow labels ── */}
-                <motion.div className="arch-flow" {...fadeUp(0.2)}>
-                    {[
-                        { step: '01', label: 'Ingest', desc: 'Board documents are uploaded and text is extracted' },
-                        { step: '02', label: 'Extract', desc: 'Entities and relationships are identified from content' },
-                        { step: '03', label: 'Graph', desc: 'A knowledge graph is created and stored in Neo4j' },
-                        { step: '04', label: 'Retrieve', desc: 'User queries trigger graph traversal for context' },
-                        { step: '05', label: 'Generate', desc: 'LLM produces answers enriched with glossary definitions' },
-                    ].map((item, i) => (
-                        <motion.div key={i} className="arch-flow-item" {...fadeUp(0.22 + i * 0.04)}>
-                            <span className="arch-flow-num">{item.step}</span>
-                            <div>
-                                <p className="arch-flow-label">{item.label}</p>
-                                <p className="arch-flow-desc">{item.desc}</p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
+        {/* ── flow labels ── */}
+        <motion.div className="arch-flow" {...fadeUp(0.2)}>
+          {[
+            { step: '01', label: 'Ingest', desc: 'Board documents are uploaded and text is extracted' },
+            { step: '02', label: 'Extract', desc: 'Entities and relationships are identified from content' },
+            { step: '03', label: 'Graph', desc: 'A knowledge graph is created and stored in Neo4j' },
+            { step: '04', label: 'Retrieve', desc: 'User queries trigger graph traversal for context' },
+            { step: '05', label: 'Generate', desc: 'LLM produces answers enriched with glossary definitions' },
+          ].map((item, i) => (
+            <motion.div key={i} className="arch-flow-item" {...fadeUp(0.22 + i * 0.04)}>
+              <span className="arch-flow-num">{item.step}</span>
+              <div>
+                <p className="arch-flow-label">{item.label}</p>
+                <p className="arch-flow-desc">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
 
-            </Container>
+      </Container>
 
-            {/* ── lightbox overlay ── */}
-            <AnimatePresence>
-                {isExpanded && (
-                    <motion.div
-                        className="arch-lightbox"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.25 }}
-                        onClick={() => setIsExpanded(false)}
-                    >
-                        <motion.img
-                            src="/system-architecture.png"
-                            alt="System Architecture Diagram (expanded)"
-                            className="arch-lightbox-img"
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                        />
-                        <button className="arch-lightbox-close" onClick={() => setIsExpanded(false)}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <line x1="18" y1="6" x2="6" y2="18" />
-                                <line x1="6" y1="6" x2="18" y2="18" />
-                            </svg>
-                        </button>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+      {/* ── lightbox overlay ── */}
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            className="arch-lightbox"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setIsExpanded(false)}
+          >
+            <motion.img
+              src="/system-architecture.png"
+              alt="System Architecture Diagram (expanded)"
+              className="arch-lightbox-img"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            />
+            <button className="arch-lightbox-close" onClick={() => setIsExpanded(false)}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-            <style>{`
+      <style>{`
         .arch-section {
           background: #fff;
           padding: 6rem 0 5rem;
@@ -293,13 +293,16 @@ const SystemArchitecture = () => {
 
         /* ── responsive ── */
         @media (max-width: 600px) {
+          .arch-section { padding: 3.5rem 0 3rem; }
           .arch-diagram-img { padding: 1rem; }
           .arch-lightbox { padding: 1rem; }
           .arch-lightbox-img { padding: 0.75rem; }
+          .arch-subtitle { margin-bottom: 2rem; }
+          .arch-flow-item { gap: 0.85rem; padding: 1rem 0; }
         }
       `}</style>
-        </Section>
-    );
+    </Section>
+  );
 };
 
 export default SystemArchitecture;

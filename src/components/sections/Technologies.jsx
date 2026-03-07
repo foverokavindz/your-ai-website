@@ -200,6 +200,13 @@ const Technologies = () => (
         color: var(--clr-muted);
         line-height: 1.4;
       }
+
+      /* ── mobile responsive ── */
+      @media (max-width: 640px) {
+        .tech-section { padding: 3.5rem 0 3rem; }
+        .tech-thead { padding: 0.85rem 1rem; }
+        .tech-row { padding: 0.75rem 1rem; }
+      }
     `}</style>
   </Section>
 );

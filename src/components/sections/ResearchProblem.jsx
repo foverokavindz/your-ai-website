@@ -212,6 +212,14 @@ const ResearchProblem = () => (
         max-width: 860px;
         margin: 0;
       }
+
+      /* ── mobile responsive ── */
+      @media (max-width: 640px) {
+        .rp-section { padding: 3.5rem 0 3rem; }
+        .rp-panel { padding: 1.5rem 1.25rem; }
+        .rp-headline { margin-bottom: 2.5rem; }
+        .rp-question-wrap { padding-top: 1.5rem; }
+      }
     `}</style>
   </Section>
 );

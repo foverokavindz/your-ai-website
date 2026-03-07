@@ -311,6 +311,13 @@ const Contact = () => {
           align-self: flex-start;
         }
         .ct-submit:hover { opacity: 0.8; }
+
+        /* ── mobile responsive ── */
+        @media (max-width: 640px) {
+          .ct-section { padding: 3.5rem 0 3rem; }
+          .ct-form { padding: 1.25rem 1rem; }
+          .ct-detail-row:hover { margin: 0; padding-left: 0; padding-right: 0; }
+        }
       `}</style>
     </Section>
   );

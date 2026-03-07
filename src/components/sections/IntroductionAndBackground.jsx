@@ -297,6 +297,14 @@ const IntroductionAndBackground = () => (
         background: var(--clr-heading);
         flex-shrink: 0;
       }
+
+      /* ── mobile responsive ── */
+      @media (max-width: 640px) {
+        .ib-section { padding: 3.5rem 0 3rem; }
+        .ib-headline { margin-bottom: 2rem; }
+        .ib-divider { margin: 0 0 1.5rem; }
+        .ib-row { margin-bottom: 1.5rem; }
+      }
     `}</style>
   </Section>
 );

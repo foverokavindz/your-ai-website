@@ -4,204 +4,204 @@ import Section from '../ui/Section';
 import Container from '../ui/Container';
 
 const fadeUp = (delay = 0) => ({
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.06 },
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.06 },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
 });
 
 /* ── H1 data ── */
 const h1Rows = [
-    { metric: 'Context Recall', mean: '0.839', median: '1', min: '0', max: '1' },
-    { metric: 'Answer Relevancy', mean: '0.767', median: '1', min: '0', max: '1' },
-    { metric: 'Faithfulness', mean: '0.933', median: '1', min: '0.6', max: '1' },
+  { metric: 'Context Recall', mean: '0.839', median: '1', min: '0', max: '1' },
+  { metric: 'Answer Relevancy', mean: '0.767', median: '1', min: '0', max: '1' },
+  { metric: 'Faithfulness', mean: '0.933', median: '1', min: '0.6', max: '1' },
 ];
 
 const h1Findings = [
-    {
-        head: 'Retrieval',
-        points: [
-            'Mean Recall: The system retrieves 84% (0.84) of relevant knowledge graph triples.',
-            'Consistent performance: The median recall is 1.000 — in at least half of cases, all relevant triples are retrieved.',
-        ],
-    },
-    {
-        head: 'Generation',
-        points: [
-            'Mean answer relevancy: 0.767 (over 76% relevant responses).',
-            'Mean faithfulness: 0.933 — most answers are factually correct.',
-        ],
-    },
+  {
+    head: 'Retrieval',
+    points: [
+      'Mean Recall: The system retrieves 84% (0.84) of relevant knowledge graph triples.',
+      'Consistent performance: The median recall is 1.000 — in at least half of cases, all relevant triples are retrieved.',
+    ],
+  },
+  {
+    head: 'Generation',
+    points: [
+      'Mean answer relevancy: 0.767 (over 76% relevant responses).',
+      'Mean faithfulness: 0.933 — most answers are factually correct.',
+    ],
+  },
 ];
 
 /* ── H2 data ── */
 const h2Rows = [
-    { label: 'Without Glossary', mean: '0.483', median: '0.5', min: '0', max: '1' },
-    { label: 'With Glossary', mean: '0.717', median: '1', min: '0', max: '1' },
+  { label: 'Without Glossary', mean: '0.483', median: '0.5', min: '0', max: '1' },
+  { label: 'With Glossary', mean: '0.717', median: '1', min: '0', max: '1' },
 ];
 
 const h2Findings = [
-    {
-        head: 'Glossary Boosts Relevancy',
-        points: [
-            'Without glossary: mean answer relevancy 0.483.',
-            'With glossary: mean answer relevancy = 0.717 (48% increase).',
-        ],
-    },
-    {
-        head: 'Improved Understanding',
-        points: [
-            'Median relevancy jumps to 1.0 with glossary — over half of glossary-based queries are fully relevant.',
-        ],
-    },
-    {
-        head: 'Fewer Fallback Responses',
-        points: [
-            'Glossary integration reduced "I don\'t understand" answers, improving contextual grounding.',
-        ],
-    },
+  {
+    head: 'Glossary Boosts Relevancy',
+    points: [
+      'Without glossary: mean answer relevancy 0.483.',
+      'With glossary: mean answer relevancy = 0.717 (48% increase).',
+    ],
+  },
+  {
+    head: 'Improved Understanding',
+    points: [
+      'Median relevancy jumps to 1.0 with glossary — over half of glossary-based queries are fully relevant.',
+    ],
+  },
+  {
+    head: 'Fewer Fallback Responses',
+    points: [
+      'Glossary integration reduced "I don\'t understand" answers, improving contextual grounding.',
+    ],
+  },
 ];
 
 /* ── mini bar chart (pure CSS) ── */
 const BarChart = () => (
-    <div className="re-chart">
-        <div className="re-chart-y">
-            {[0.8, 0.6, 0.4, 0.2, 0].map((v) => (
-                <span key={v} className="re-y-label">{v.toFixed(1)}</span>
-            ))}
-        </div>
-        <div className="re-chart-bars">
-            {[
-                { label: 'Without Glossary', value: 0.483, color: '#C8A96A' },
-                { label: 'With Glossary', value: 0.717, color: '#1A1A1A' },
-            ].map((b) => (
-                <div key={b.label} className="re-bar-col">
-                    <span className="re-bar-val">{b.value}</span>
-                    <motion.div
-                        className="re-bar"
-                        style={{ background: b.color }}
-                        initial={{ scaleY: 0 }}
-                        whileInView={{ scaleY: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                    />
-                    <span className="re-bar-label">{b.label}</span>
-                </div>
-            ))}
-        </div>
+  <div className="re-chart">
+    <div className="re-chart-y">
+      {[0.8, 0.6, 0.4, 0.2, 0].map((v) => (
+        <span key={v} className="re-y-label">{v.toFixed(1)}</span>
+      ))}
     </div>
+    <div className="re-chart-bars">
+      {[
+        { label: 'Without Glossary', value: 0.483, color: '#C8A96A' },
+        { label: 'With Glossary', value: 0.717, color: '#1A1A1A' },
+      ].map((b) => (
+        <div key={b.label} className="re-bar-col">
+          <span className="re-bar-val">{b.value}</span>
+          <motion.div
+            className="re-bar"
+            style={{ background: b.color }}
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          />
+          <span className="re-bar-label">{b.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
 );
 
 const MetricTable = ({ headers, rows }) => (
-    <div className="re-table-wrap">
-        <table className="re-table">
-            <thead>
-                <tr>
-                    {headers.map((h) => <th key={h}>{h}</th>)}
-                </tr>
-            </thead>
-            <tbody>
-                {rows.map((row, i) => (
-                    <tr key={i}>
-                        {Object.values(row).map((v, j) => <td key={j}>{v}</td>)}
-                    </tr>
-                ))}
-            </tbody>
-        </table>
-    </div>
+  <div className="re-table-wrap">
+    <table className="re-table">
+      <thead>
+        <tr>
+          {headers.map((h) => <th key={h}>{h}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row, i) => (
+          <tr key={i}>
+            {Object.values(row).map((v, j) => <td key={j}>{v}</td>)}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
 );
 
 const ResultsAndEvaluation = () => (
-    <Section id="results" className="re-section">
-        <Container>
+  <Section id="results" className="re-section">
+    <Container>
 
-            {/* meta */}
-            <motion.div className="re-meta" {...fadeUp(0)}>
-                <span className="re-eyebrow">Results &amp; Evaluation</span>
-                <span className="re-meta-num">09</span>
-            </motion.div>
+      {/* meta */}
+      <motion.div className="re-meta" {...fadeUp(0)}>
+        <span className="re-eyebrow">Results &amp; Evaluation</span>
+        <span className="re-meta-num">09</span>
+      </motion.div>
 
-            {/* headline */}
-            <motion.h2 className="re-headline" {...fadeUp(0.05)}>
-                System Evaluation
-            </motion.h2>
+      {/* headline */}
+      <motion.h2 className="re-headline" {...fadeUp(0.05)}>
+        System Evaluation
+      </motion.h2>
 
-            {/* intro */}
-            <motion.div className="re-intro" {...fadeUp(0.1)}>
-                <p className="re-intro-text">
-                    To assess the effectiveness of the proposed system, we conducted a comprehensive
-                    evaluation under two hypotheses:
-                </p>
-                <div className="re-hypotheses">
-                    <span className="re-hyp"><strong>H1</strong> — Retrieval and Generation Evaluation</span>
-                    <span className="re-hyp"><strong>H2</strong> — Glossary Integration Impact Evaluation</span>
-                </div>
-            </motion.div>
+      {/* intro */}
+      <motion.div className="re-intro" {...fadeUp(0.1)}>
+        <p className="re-intro-text">
+          To assess the effectiveness of the proposed system, we conducted a comprehensive
+          evaluation under two hypotheses:
+        </p>
+        <div className="re-hypotheses">
+          <span className="re-hyp"><strong>H1</strong> — Retrieval and Generation Evaluation</span>
+          <span className="re-hyp"><strong>H2</strong> — Glossary Integration Impact Evaluation</span>
+        </div>
+      </motion.div>
 
-            {/* ── H1 ── */}
-            <motion.div className="re-block" {...fadeUp(0.15)}>
-                <div className="re-block-header">
-                    <span className="re-block-tag">H1</span>
-                    <p className="re-block-title">Retrieval and Generation Evaluation</p>
-                </div>
+      {/* ── H1 ── */}
+      <motion.div className="re-block" {...fadeUp(0.15)}>
+        <div className="re-block-header">
+          <span className="re-block-tag">H1</span>
+          <p className="re-block-title">Retrieval and Generation Evaluation</p>
+        </div>
 
-                <div className="re-two-col">
-                    <MetricTable
-                        headers={['Metric', 'Mean', 'Median', 'Min', 'Max']}
-                        rows={h1Rows}
-                    />
-                    <div className="re-findings">
-                        {h1Findings.map((f, i) => (
-                            <div key={i} className="re-finding">
-                                <p className="re-finding-head">{f.head}</p>
-                                <ul className="re-finding-list">
-                                    {f.points.map((p, j) => (
-                                        <li key={j} className="re-finding-item">
-                                            <span className="re-bullet" />{p}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </motion.div>
+        <div className="re-two-col">
+          <MetricTable
+            headers={['Metric', 'Mean', 'Median', 'Min', 'Max']}
+            rows={h1Rows}
+          />
+          <div className="re-findings">
+            {h1Findings.map((f, i) => (
+              <div key={i} className="re-finding">
+                <p className="re-finding-head">{f.head}</p>
+                <ul className="re-finding-list">
+                  {f.points.map((p, j) => (
+                    <li key={j} className="re-finding-item">
+                      <span className="re-bullet" />{p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
 
-            {/* ── H2 ── */}
-            <motion.div className="re-block" {...fadeUp(0.2)}>
-                <div className="re-block-header">
-                    <span className="re-block-tag">H2</span>
-                    <p className="re-block-title">Glossary Integration Impact Evaluation</p>
-                </div>
+      {/* ── H2 ── */}
+      <motion.div className="re-block" {...fadeUp(0.2)}>
+        <div className="re-block-header">
+          <span className="re-block-tag">H2</span>
+          <p className="re-block-title">Glossary Integration Impact Evaluation</p>
+        </div>
 
-                <div className="re-two-col">
-                    <div>
-                        <MetricTable
-                            headers={['Answer Relevancy', 'Mean', 'Median', 'Min', 'Max']}
-                            rows={h2Rows}
-                        />
-                        <BarChart />
-                    </div>
-                    <div className="re-findings">
-                        {h2Findings.map((f, i) => (
-                            <div key={i} className="re-finding">
-                                <p className="re-finding-head">{f.head}</p>
-                                <ul className="re-finding-list">
-                                    {f.points.map((p, j) => (
-                                        <li key={j} className="re-finding-item">
-                                            <span className="re-bullet" />{p}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </motion.div>
+        <div className="re-two-col">
+          <div>
+            <MetricTable
+              headers={['Answer Relevancy', 'Mean', 'Median', 'Min', 'Max']}
+              rows={h2Rows}
+            />
+            <BarChart />
+          </div>
+          <div className="re-findings">
+            {h2Findings.map((f, i) => (
+              <div key={i} className="re-finding">
+                <p className="re-finding-head">{f.head}</p>
+                <ul className="re-finding-list">
+                  {f.points.map((p, j) => (
+                    <li key={j} className="re-finding-item">
+                      <span className="re-bullet" />{p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
 
-        </Container>
+    </Container>
 
-        <style>{`
+    <style>{`
       .re-section {
         background: #fff;
         padding: 6rem 0 5rem;
@@ -449,8 +449,20 @@ const ResultsAndEvaluation = () => (
         border-top: 1px solid var(--clr-border);
         width: 100%;
       }
+
+      /* ── mobile responsive ── */
+      @media (max-width: 640px) {
+        .re-section { padding: 3.5rem 0 3rem; }
+        .re-block-header { padding: 0.75rem 1rem; }
+        .re-findings { padding: 1rem; }
+        .re-table th { padding: 0.5rem 0.6rem; font-size: 0.65rem; }
+        .re-table td { padding: 0.5rem 0.6rem; font-size: 0.78rem; }
+        .re-table td:first-child { font-size: 0.72rem; }
+        .re-chart { padding: 1rem 0.75rem 0.5rem; height: 140px; }
+        .re-block-title { font-size: 0.82rem; }
+      }
     `}</style>
-    </Section>
+  </Section>
 );
 
 export default ResultsAndEvaluation;

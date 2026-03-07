@@ -232,6 +232,13 @@ const Footer = () => {
           background: rgba(255,255,255,0.15);
           color: #fff;
         }
+
+        /* ── mobile responsive ── */
+        @media (max-width: 640px) {
+          .ft-top { padding: 2.5rem 0 2rem; }
+          .ft-bottom { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1rem 0; }
+          .ft-copy { font-size: 0.68rem; }
+        }
       `}</style>
     </footer>
   );

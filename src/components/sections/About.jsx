@@ -385,6 +385,14 @@ const About = () => (
         padding: 0.15rem 0.45rem;
         letter-spacing: 0.01em;
       }
+
+      /* ── mobile responsive ── */
+      @media (max-width: 640px) {
+        .ab-section { padding: 3.5rem 0 3rem; }
+        .ab-card-body { padding: 1rem 1rem 1.25rem; }
+        .ab-sup-row:hover { margin: 0; padding-left: 0; padding-right: 0; }
+        .ab-card-top { flex-direction: column; gap: 0.5rem; }
+      }
     `}</style>
   </Section>
 );
