@@ -6,6 +6,7 @@ import ResearchGap from './components/sections/ResearchGap';
 import ResearchProblem from './components/sections/ResearchProblem';
 import Objectives from './components/sections/Objectives';
 import Methodology from './components/sections/Methodology';
+import SystemArchitecture from './components/sections/SystemArchitecture';
 import Technologies from './components/sections/Technologies';
 import Milestones from './components/sections/Milestones';
 import ResultsAndEvaluation from './components/sections/ResultsAndEvaluation';
@@ -29,6 +30,7 @@ function App() {
         <LiteratureSurvey />
         <Objectives />
         <Methodology />
+        <SystemArchitecture />
         <Technologies />
         <Milestones />
         <ResultsAndEvaluation />

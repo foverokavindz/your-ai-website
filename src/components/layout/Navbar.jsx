@@ -12,6 +12,7 @@ const navItems = [
       { label: 'Literature Survey', href: '#literature-survey' },
       { label: 'Objectives', href: '#objectives' },
       { label: 'Methodology', href: '#methodology' },
+      { label: 'System Architecture', href: '#system-architecture' },
     ],
   },
   { label: 'Technologies', href: '#technologies' },
