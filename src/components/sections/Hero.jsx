@@ -34,10 +34,10 @@ const Hero = () => {
 
 				{/* CTA Buttons */}
 				<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-					<button className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm sm:text-base font-medium rounded-full transition-all duration-200 shadow-sm hover:shadow-md" style={{ backgroundColor: '#1A1A1A', color: '#FFFFFF' }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#000000')} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#1A1A1A')}>
+					<a href={'#introduction'} className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm sm:text-base font-medium rounded-full transition-all duration-200 shadow-sm hover:shadow-md" style={{ backgroundColor: '#1A1A1A', color: '#FFFFFF' }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#000000')} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#1A1A1A')}>
 						Explore
 						<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-					</button>
+					</a>
 
 					<a
 						href="https://github.com/orgs/NDK-Research-AI-Project/repositories"

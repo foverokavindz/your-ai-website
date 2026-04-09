@@ -1,149 +1,148 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download } from 'lucide-react';
+import { Download, ExternalLink } from 'lucide-react';
 import Section from '../ui/Section';
 import Container from '../ui/Container';
 
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.08 },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+	initial: { opacity: 0, y: 20 },
+	whileInView: { opacity: 1, y: 0 },
+	viewport: { once: true, amount: 0.08 },
+	transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
 });
 
 const categories = [
-  {
-    label: 'Project Proposals',
-    items: [
-      {
-        name: 'Research Proposal Document',
-        meta: 'Sept 2024 · 1 MB · PDF',
-        desc: 'Detailed project proposal outlining research objectives, methodology, and expected outcomes.',
-        link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/Grp_15_Research_Proposal_ITC4166%20(1).pdf',
-        filename: 'Research_Proposal.pdf',
-      },
-      {
-        name: 'Research Proposal Presentation',
-        meta: 'Sept 2024 · 3.3 MB · PDF',
-        desc: 'Presentation summarizing the research proposal and key objectives.',
-        link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/Tea%20Board%20Research%20Proposal%20Presentation.pdf',
-        filename: 'Research_Proposal_Presentation.pdf',
-      },
-    ],
-  },
-  {
-    label: 'Research Evaluation',
-    items: [
-      {
-        name: 'Evaluation 01 — Report',
-        meta: 'Dec 2024 · 1.2 MB · PDF',
-        desc: 'Evaluation report for the first research proposal, including feedback and suggestions.',
-        link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/Grp_15_Progress_Report_1_ITC4166.pdf',
-        filename: 'Evaluation_01_Report.pdf',
-      },
-      {
-        name: 'Evaluation 01 — Presentation',
-        meta: 'Dec 2024 · 22 MB · PDF',
-        desc: 'Presentation summarizing the evaluation findings and recommendations.',
-        link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/Research%20first%20evaluation.pdf',
-        filename: 'Evaluation_01_Presentation.pdf',
-      },
-      {
-        name: 'Evaluation 02 — Presentation',
-        meta: 'April 2025 · 4 MB · PDF',
-        desc: 'Presentation for the second progress evaluation with updated findings.',
-        link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/Grp_15_Second_Progress_Evaluation.pdf',
-        filename: 'Evaluation_02_Presentation.pdf',
-      },
-    ],
-  },
-  {
-    label: 'Final Documentation',
-    items: [
-      {
-        name: 'Thesis Document',
-        meta: 'June 2025 · TBD',
-        desc: 'Comprehensive documentation of research findings, methodology, and conclusions.',
-        link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/Grp_15_Thesis.pdf',
-        filename: 'Thesis_Document.pdf',
-      },
-      {
-        name: 'Conference Oral Presentation',
-        meta: 'February 2026',
-        desc: 'Presentation of the research findings at a conference.',
-        link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/OralPresentation.pptx',
-        filename: 'Conference_Oral_Presentation.pdf',
-      },
-      {
-        name: 'Research Paper',
-        meta: 'February 2026 · TBD',
-        desc: 'Published research paper with peer-reviewed findings and contributions.',
-        disabled: true,
-      },
-    ],
-  },
+	{
+		label: 'Project Proposals',
+		items: [
+			{
+				name: 'Research Proposal Document',
+				meta: 'Sept 2024 · 1 MB · PDF',
+				desc: 'Detailed project proposal outlining research objectives, methodology, and expected outcomes.',
+				link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/Grp_15_Research_Proposal_ITC4166%20(1).pdf',
+				filename: 'Research_Proposal.pdf',
+			},
+			{
+				name: 'Research Proposal Presentation',
+				meta: 'Sept 2024 · 3.3 MB · PDF',
+				desc: 'Presentation summarizing the research proposal and key objectives.',
+				link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/Tea%20Board%20Research%20Proposal%20Presentation.pdf',
+				filename: 'Research_Proposal_Presentation.pdf',
+			},
+		],
+	},
+	{
+		label: 'Research Evaluation',
+		items: [
+			{
+				name: 'Evaluation 01 — Report',
+				meta: 'Dec 2024 · 1.2 MB · PDF',
+				desc: 'Evaluation report for the first research proposal, including feedback and suggestions.',
+				link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/Grp_15_Progress_Report_1_ITC4166.pdf',
+				filename: 'Evaluation_01_Report.pdf',
+			},
+			{
+				name: 'Evaluation 01 — Presentation',
+				meta: 'Dec 2024 · 22 MB · PDF',
+				desc: 'Presentation summarizing the evaluation findings and recommendations.',
+				link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/Research%20first%20evaluation.pdf',
+				filename: 'Evaluation_01_Presentation.pdf',
+			},
+			{
+				name: 'Evaluation 02 — Presentation',
+				meta: 'April 2025 · 4 MB · PDF',
+				desc: 'Presentation for the second progress evaluation with updated findings.',
+				link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/Grp_15_Second_Progress_Evaluation.pdf',
+				filename: 'Evaluation_02_Presentation.pdf',
+			},
+		],
+	},
+	{
+		label: 'Final Documentation',
+		items: [
+			{
+				name: 'Thesis Document',
+				meta: 'June 2025',
+				desc: 'Comprehensive documentation of research findings, methodology, and conclusions.',
+				link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/Grp_15_Thesis.pdf',
+				filename: 'Thesis_Document.pdf',
+			},
+			{
+				name: 'Conference Oral Presentation',
+				meta: '18-19 February 2026',
+				desc: 'Presentation of the research findings at a conference.',
+				link: 'https://raw.githubusercontent.com/foverokavindz/your-ai-website/master/public/OralPresentation.pptx',
+				filename: 'Conference_Oral_Presentation.pdf',
+			},
+			{
+				name: 'Published Research Paper',
+				meta: '31 March 2026',
+				desc: 'Published research paper in IEEE Xplore conference proceedings.',
+				link: 'https://ieeexplore.ieee.org/document/11453918',
+				filename: 'Published_Research_Paper',
+				isPreview: true,
+			},
+		],
+	},
 ];
 
 const Downloads = () => (
-  <Section id="downloads" className="dl-section">
-    <Container>
+	<Section id="downloads" className="dl-section">
+		<Container>
+			{/* meta */}
+			<motion.div className="dl-meta" {...fadeUp(0)}>
+				<span className="dl-eyebrow">Downloads</span>
+				<span className="dl-meta-num">09</span>
+			</motion.div>
 
-      {/* meta */}
-      <motion.div className="dl-meta" {...fadeUp(0)}>
-        <span className="dl-eyebrow">Downloads</span>
-        <span className="dl-meta-num">09</span>
-      </motion.div>
+			{/* headline */}
+			<motion.h2 className="dl-headline" {...fadeUp(0.05)}>
+				Project Resources
+			</motion.h2>
 
-      {/* headline */}
-      <motion.h2 className="dl-headline" {...fadeUp(0.05)}>
-        Project Resources
-      </motion.h2>
+			{/* category blocks */}
+			<div className="dl-categories">
+				{categories.map((cat, ci) => (
+					<motion.div key={ci} className="dl-cat" {...fadeUp(0.1 + ci * 0.06)}>
+						{/* category label row */}
+						<div className="dl-cat-header">
+							<span className="dl-cat-label">{cat.label}</span>
+							<span className="dl-cat-count">
+								{cat.items.length} file{cat.items.length !== 1 ? 's' : ''}
+							</span>
+						</div>
 
-      {/* category blocks */}
-      <div className="dl-categories">
-        {categories.map((cat, ci) => (
-          <motion.div key={ci} className="dl-cat" {...fadeUp(0.1 + ci * 0.06)}>
+						{/* file rows */}
+						{cat.items.map((item, ii) => (
+							<div key={ii} className={`dl-row${item.disabled ? ' dl-row--disabled' : ''}`}>
+								<div className="dl-row-info">
+									<p className="dl-name">{item.name}</p>
+									<p className="dl-desc">{item.desc}</p>
+									<p className="dl-filemeta">{item.meta}</p>
+								</div>
+								<div className="dl-row-action">
+									{item.disabled ? (
+										<span className="dl-soon">Coming Soon</span>
+									) : item.isPreview ? (
+										<a className="dl-btn" href={item.link} target="_blank" rel="noreferrer">
+											<ExternalLink size={13} strokeWidth={2.5} />
+											View on IEEE Xplore
+										</a>
+									) : (
+										<a className="dl-btn" href={item.link} download={item.filename} target="_blank" rel="noreferrer">
+											<Download size={13} strokeWidth={2.5} />
+											Download
+										</a>
+									)}
+								</div>
+							</div>
+						))}
+					</motion.div>
+				))}
+			</div>
+		</Container>
 
-            {/* category label row */}
-            <div className="dl-cat-header">
-              <span className="dl-cat-label">{cat.label}</span>
-              <span className="dl-cat-count">{cat.items.length} file{cat.items.length !== 1 ? 's' : ''}</span>
-            </div>
-
-            {/* file rows */}
-            {cat.items.map((item, ii) => (
-              <div key={ii} className={`dl-row${item.disabled ? ' dl-row--disabled' : ''}`}>
-                <div className="dl-row-info">
-                  <p className="dl-name">{item.name}</p>
-                  <p className="dl-desc">{item.desc}</p>
-                  <p className="dl-filemeta">{item.meta}</p>
-                </div>
-                <div className="dl-row-action">
-                  {item.disabled ? (
-                    <span className="dl-soon">Coming Soon</span>
-                  ) : (
-                    <a
-                      className="dl-btn"
-                      href={item.link}
-                      download={item.filename}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Download size={13} strokeWidth={2.5} />
-                      Download
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
-
-          </motion.div>
-        ))}
-      </div>
-
-    </Container>
-
-    <style>{`
+		<style>{`
       .dl-section {
         background: #fff;
         padding: 6rem 0 5rem;
@@ -306,7 +305,7 @@ const Downloads = () => (
         .dl-row:hover:not(.dl-row--disabled) { margin: 0; padding-left: 0; padding-right: 0; }
       }
     `}</style>
-  </Section>
+	</Section>
 );
 
 export default Downloads;
